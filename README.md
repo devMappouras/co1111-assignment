@@ -1,9 +1,5 @@
-## Welcome to GitHub Pages
+## Welcome to Team 3 Page
 
-You can use the [editor on GitHub](https://github.com/Pelopedis/co1111-assignment/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Team members: Namukolo Amy Yeta
+              Marina Irakleous
+              Chris Mappouras              
