@@ -15,3 +15,7 @@ body {
 button {
     background-color: lightpink;
 }
+
+.twitter-timeline {
+    width: 30%;
+}
