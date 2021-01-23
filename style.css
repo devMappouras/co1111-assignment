@@ -1,1 +1,17 @@
+/*styling for landing page (index.html)*/
 
+body {
+    background-color: lightgray;
+}
+
+.title {
+    color: purple;
+}
+
+.startButton {
+    font-size: 1.2em;
+}
+
+button {
+    background-color: lightpink;
+}
