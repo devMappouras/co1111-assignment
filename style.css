@@ -4,6 +4,19 @@
     margin: 0;
 }
 
+.header {
+	background-color: lightblue;
+	background-image: url(parley(1.png);
+}
+.header h1 {
+	font-family: Arial;
+	font-size: 100%;
+	padding: 10px;
+}
+.header img {
+	width: 100%
+}
+
 body {
     background-color: #EEFCF8;
     text-align: center;
@@ -35,14 +48,35 @@ header{
 }
 
 .startButton {
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.5%;
+	background-color: #483D8B;
+	color: white;
+	font-size: 1.2em;
+	margin: auto;
+	display: block;
+	padding: 16px 32px;
 }
 
-button {
+.startButton:hover {
+	cursor: pointer;
+	background-color: white;
+	color: black;
+}
+
+.container1 {
+	border: solid 1px black;
+	background-color: lightblue;
+	padding: 10px;
+	margin: 10px;
+}
+.container2 {
+	border: solid 1px black;
+	background-color: lightblue;
+	padding: 10px;
+	margin: 10px;
+}
+
+
+//*button {
 
     color: white;
     background-color: #89cff0 ;
@@ -59,7 +93,9 @@ button {
     margin: 4px 2px;
 
     cursor: pointer;
-}
+}*//
+	
+	
 
 .twitterFrame{
     margin: 5%;
@@ -71,4 +107,3 @@ button {
 
 }
 
-header
