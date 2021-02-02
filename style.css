@@ -1,21 +1,74 @@
 /*styling for landing page (index.html)*/
-
-body {
-    background-color: lightgrey;
+*{
+    padding: 0;
+    margin: 0;
 }
 
+body {
+    background-color: #EEFCF8;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    color: #242D42;
+    margin: 0;
+
+}
+
+/*
+header{
+
+
+    background-image: url("images/parley (1).png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50% 35%;
+    width: 100%;
+
+
+
+}*/
+
 .title {
-    color: purple;
+    color: coral;
+
+    text-align: center;
 }
 
 .startButton {
-    font-size: 1.2em;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5%;
 }
 
 button {
-    background-color: lightpink;
+
+    color: white;
+    background-color: #89cff0 ;
+    border: none;
+
+    font-size: 1.2em;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    align-items: flex-end;
+    display: flex;
+
+    padding: 10px 24px;
+    margin: 4px 2px;
+
+    cursor: pointer;
 }
 
-.twitter-timeline {
-    width: 30%;
+.twitterFrame{
+    margin: 5%;
 }
+.twitter-timeline {
+
+    width: 100%;
+    padding: 0.5%;
+
+}
+
+header
