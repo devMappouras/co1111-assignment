@@ -1,4 +1,4 @@
-## Welcome to Team 3 Page
+## Welcome to Parley Page
 
 Team members: Namukolo Amy Yeta, Marina Irakleous, Chris Mappouras 
 :)
