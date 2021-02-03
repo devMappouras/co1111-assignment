@@ -6,10 +6,9 @@
 
 .header {
 	background-color: lightblue;
-	background-image: url(parley(1.png);
 }
 .header h1 {
-	font-family: Arial;
+	font-family: Arial, sans-serif;
 	font-size: 100%;
 	padding: 10px;
 }
@@ -76,7 +75,7 @@ header{
 }
 
 
-//*button {
+/*button {
 
     color: white;
     background-color: #89cff0 ;
@@ -93,7 +92,7 @@ header{
     margin: 4px 2px;
 
     cursor: pointer;
-}*//
+}*/
 	
 	
 

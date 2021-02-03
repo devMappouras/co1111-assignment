@@ -13,13 +13,13 @@ function getTreasureHunts() {
             let treasureHunts = jsonObject.treasureHunts;
 
             for(let i=0; i < treasureHunts.length; i++) {
-                let  id = treasureHunts[i].uuid;
 
                 let listItem = document.createElement("li");
                 let treasureHuntName =  treasureHunts[i].name;
-                //listItem.innerHTML = treasureHuntName;
+                let treasureHuntDesc =  treasureHunts[i].description;
+                let treasureHuntID =  treasureHunts[i].uuid;
 
-                listItem.innerHTML = "<a href='https://codecyprus.org/th/api/start?player="+ playersName +"&app=team3TreasureHunt&treasure-hunt-id="+id+"'>" + treasureHuntName + "</a>";
+                listItem.innerHTML ="<div class='container2'>" + "<h4>" +treasureHuntName+ "</h4>"+ "<p>" +treasureHuntDesc+ "</p>" + "<a href='https://codecyprus.org/th/api/start?player="+ playersName +"&app=team3TreasureHunt&treasure-hunt-id="+treasureHuntID+"'>Start</a>" + "</div><br>";
 
                 thList.appendChild(listItem);
             }
