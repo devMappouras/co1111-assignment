@@ -10,14 +10,26 @@
 
     <body>
 
-        <h2 class="title" >Choose a Treasure Hunt</h2>
-        <br>
+        <div class="container2">
 
-        <ul id="">
-        </ul>
+            <!-- elements for string questions-->
+            <input type="text" class="input" id="answerString">
+            <button class="quesionButton" id="submitString">Check</button>
+
+            <!-- elements for Number questions-->
+            <input type="number" class="input" id="answerNo">
+            <button class="quesionButton" id="submitNo">Check</button>
+
+            <!-- elements for boolean questions-->
+            <button class="quesionButton" value="true" id="true">Check</button>
+            <button class="quesionButton" value="false" id="false">Check</button>
+
+        </div>
+
+        <p id="message"></p>
 
         <script>
-            getTreasureHunts();
+            getStartData();
         </script>
 
     </body>
