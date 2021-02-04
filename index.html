@@ -5,49 +5,67 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
 		<link rel="stylesheet"
-		          href="https://fonts.googleapis.com/css?family=Special+Elite">
+		          href="https://fonts.googleapis.com/css?family=Montserrat"> <!-- font for the body -->
 				  
         <title>Welcome to Parley</title>
     </head>
 
     <body>
 		
+		<div id="top"> <!-- this is the tag that the menu is used to navigate to -->
 		<div class="header">
 			
 			 <img src="images/parley%20(1).png" alt = "logo">
-			  <h1 class="title" >Game together with Parley</h1>
+			  <h1 class="title" >GAME TOGETHER WITH PARLEY</h1>
 		</div>
-       		<br>
-	    
-		<div class="container2">
-			<h3 class="title">What is a Treasure Hunt?</h3>
+		</div>
+        <br>
+		
+		<ul>
+		  <li><a class="active" href="#home">HOME</a></li>
+		  <li><a href="#about">ABOUT US</a></li> <!-- jumps to the bottom of the page -->
+		  <li><a href="#contact">CONTACT</a></li>
+		</ul>
+		
+		<div class="container3">
+			<h3 class="title">WELCOME TO PARLEY</h3>
 			<br>
 			
-			<p>Treasure Hunt is.........</p>
+			<p>Parley is a treasure hunting game app designed for users to explore and play various games. It requires users to form teams in order to complete a  number of different tasks. Click to select through the different games in store!</p>
 			<br>
+			
+			<img src = "https://2.bp.blogspot.com/-aUos-C68oEs/V-EmufgTl4I/AAAAAAAAOvg/-VCzOJMFJAIKEwhOZnmgoD7orrc0RSvrgCLcB/s1600/sea-chart.jpg" alt = "Treasure Map">
+			<img src = "https://redtri.com/wp-content/uploads/2020/08/n-RFId0_7kep4-unsplash-e1596755868601.jpg?w=1024" alt = "Searching">
+			<img src = "http://pngimg.com/uploads/treasure_chest/treasure_chest_PNG41.png" alt = "Treasure Chest">
 		</div>
-	    
-			<p>Click and start the fun!</p>
-			<br>
+		
 
          <button class="startButton" onclick="location.href='app.html';">Start</button>
         <br>
 		
 		<div class="container1">
 
-        	<h2 class="title">About Us</h2>
+        	<div id="about">
+			<h3 class="title">ABOUT US</h3>
 			<br>
 			<h4>Namukolo Amy Yeta</h4>
 
        	 	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+			
+			<img src =  "https://cdn0.iconfinder.com/data/icons/info-true-line-black-and-white/32/woman-female-person-lady-512.png" alt = "Namu"> <!-- temporary images until we place pictures of ourselves -->
          
 		 	<h4>Marina Irakleous</h4>
 		 
 			 <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br>
+			 
+			 <img src = "https://cdn0.iconfinder.com/data/icons/info-true-line-black-and-white/32/woman-female-person-lady-512.png" alt = "Marina">
 		 
 			 <h4>Chris Mappouras</h4>
-		 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+		 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p><br>
+			
+			<img src = "https://cdn3.iconfinder.com/data/icons/users-6/100/654853-user-men-2-512.png" alt = "Chris">
+			</div>
 
         <!--<button onclick="location.href='notes.html';">Our notes</button>-->
         <br>
@@ -55,7 +73,7 @@
 		<br>
 		
 		<div class="container2">
-			<h2 class="title">Social Circle</h2>
+			<h3 class="title">SOCIAL CIRCLE</h3>
 			<br>
 			
 			<p>Join and follow us on Twitter!</p>
@@ -65,6 +83,15 @@
            	 <a class="twitter-timeline" data-width="400" data-height="400" data-theme="dark" href="https://twitter.com/ChrisMappouras?ref_src=twsrc%5Etfw">Tweets by ChrisMappouras</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         	</div>
 		</div>
+		
+		<footer id="contact"> 
+			<p><strong>Contact us:</strong> Namu Amy <a href="mailto:nayeta@uclan.ac.uk">NAYeta@uclan.ac.uk</a></p>
+			<p>Marina Irakleous <a href="mirakleous@uclan.ac.uk">MIrakleous@uclan.ac.uk</a></p>
+			<p>Chris Mappouras <a href="cmappouras@uclan.ac.uk">CMappouras@uclan.ac.uk</a></p>
+			<br>
+			<a href="#top">Back to top</a>
+		</footer>
+		
 		
     </body>
 </html>
