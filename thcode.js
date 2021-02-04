@@ -62,18 +62,48 @@ function getStartData() {
 
 //function that calls the questions from server
 function getQuestion(thsession) {
-    let questionNo = 1;
+    //let questionNo = 0;
 
-    let submitString = document.getElementById("submitString");
-    let answerString = document.getElementById("answerString");
+    //example link
+    //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    fetch("https://codecyprus.org/th/api/question?session="+ thsession +"")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
 
-    let submitNo = document.getElementById("submitNo");
-    let answerNo = document.getElementById("answerNo");
+            let qStatus = jsonObject.status;
+            let totalQuestions = jsonObject.numOfQuestions;
+            let questionNo = jsonObject.currentQuestionIndex;
+            let finalQuestion = jsonObject.numOfQuestions;
+            finalQuestion = finalQuestion - 1;
 
-    var boolF = document.getElementById("false");
-    var boolT = document.getElementById("true");
+            let questionText = jsonObject.questionText;
+            let questionType = jsonObject.questionType;
+            let isSkip = jsonObject.canBeSkipped;
+            let isComplete = jsonObject.completed;
 
-    let message = document.getElementById("message");
+            let question = document.getElementById("question");
+
+            question.innerText = questionText;
 
 
+
+
+            let submitString = document.getElementById("submitString");
+            let answerString = document.getElementById("answerString");
+
+            let submitNo = document.getElementById("submitNo");
+            let answerNo = document.getElementById("answerNo");
+
+            let boolF = document.getElementById("false");
+            let boolT = document.getElementById("true");
+
+            let message = document.getElementById("message");
+
+
+
+
+
+
+        });
 }
+
