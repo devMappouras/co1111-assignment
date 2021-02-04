@@ -5,19 +5,47 @@
 }
 
 .header {
-	background-color: lightblue;
+	background-color: #483D8B;
+	background-image: url(parley(1.png);
 }
 .header h1 {
-	font-family: Arial, sans-serif;
-	font-size: 100%;
+	font-family: "Montserrat";
+	color: white;
+	font-size: 130%;
 	padding: 10px;
+	
 }
 .header img {
 	width: 100%
 }
 
+ul { /* styling for the menu */
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: oldlace;
+}
+
+li {
+	display: inline;
+}
+
+li a {
+	display: block;
+	color: #483D8B;
+	font-family: "Montserrat";
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	border: solid black 1px;
+}
+li a:hover {
+	background-color: #483D8B;
+	color: white;
+}
+
 body {
-    background-color: #EEFCF8;
+    background-color: tan;
     text-align: center;
     font-family: Helvetica, sans-serif;
     font-size: 20px;
@@ -36,14 +64,14 @@ header{
     background-position: 50% 35%;
     width: 100%;
 
-
+#EEFCF8 light blue color
 
 }*/
 
 .title {
-    color: coral;
-
-    text-align: center;
+    color: #483D8B;
+	text-align: center;
+	font-family: "Montserrat";
 }
 
 .startButton {
@@ -61,21 +89,34 @@ header{
 	color: black;
 }
 
+
 .container1 {
 	border: solid 1px black;
-	background-color: lightblue;
+	background-color: oldlace;
 	padding: 10px;
 	margin: 10px;
+}
+.container1 img {
+	width: 30%;
 }
 .container2 {
 	border: solid 1px black;
-	background-color: lightblue;
+	background-color: oldlace;
 	padding: 10px;
 	margin: 10px;
 }
+.container3 {
+	border: solid 1px black;
+	background-color: oldlace;
+	padding: 10px;
+	margin: 10px;
+}
+.container3 img {
+	width: 30%;
+}
 
 
-/*button {
+//*button {
 
     color: white;
     background-color: #89cff0 ;
@@ -92,7 +133,7 @@ header{
     margin: 4px 2px;
 
     cursor: pointer;
-}*/
+}*//
 	
 	
 
@@ -104,5 +145,13 @@ header{
     width: 100%;
     padding: 0.5%;
 
+}
+
+
+footer {
+	background-color: #483D8B;
+	color: white;
+	font-family: "Montserrat";
+	padding: 10px;
 }
 
