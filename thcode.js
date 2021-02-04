@@ -83,7 +83,7 @@ function getQuestion(thsession) {
 
             let question = document.getElementById("question");
 
-            question.innerText = questionText;
+            question.innerHTML = questionText;
 
 
 
