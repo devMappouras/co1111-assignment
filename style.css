@@ -154,3 +154,18 @@ footer {
 	padding: 10px;
 }
 
+/* design for question.html */
+
+/* hides inputs and submit buttons */
+.input, .quesionButton {
+	display: none;
+}
+
+/* design for inputs and submit buttons */
+.input {
+
+}
+
+.quesionButton {
+
+}
