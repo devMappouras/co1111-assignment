@@ -148,7 +148,7 @@ function getQuestion(thsession) {
                 answerString.style.display = "inline";
                 submitString.style.display = "inline";
                 answer = answerString.value;
-
+                console.log(answer);
             }
 
             let message = document.getElementById("message");
