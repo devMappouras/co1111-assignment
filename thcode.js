@@ -102,7 +102,6 @@ function getQuestion(thsession) {
 
 
             //functionality of HTML elements
-
             //text elements
             let submitString = document.getElementById("submitString");
             let answerString = document.getElementById("answerString");
@@ -114,6 +113,8 @@ function getQuestion(thsession) {
             //boolean elements
             let boolF = document.getElementById("false");
             let boolT = document.getElementById("true");
+
+            let answer;
 
             //checks what type is each question and acts accordingly
             if (questionType==="BOOLEAN") {
@@ -146,6 +147,7 @@ function getQuestion(thsession) {
                 //shows text input and submit button (changing css display to inline)
                 answerString.style.display = "inline";
                 submitString.style.display = "inline";
+                answer = answerString.value;
 
             }
 
