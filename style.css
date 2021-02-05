@@ -157,7 +157,7 @@ footer {
 /* design for question.html */
 
 /* hides inputs and submit buttons */
-.input, .quesionButton {
+.input, .questionButton {
 	display: none;
 }
 
@@ -166,6 +166,6 @@ footer {
 
 }
 
-.quesionButton {
+.questionButton {
 
 }
