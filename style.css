@@ -6,10 +6,9 @@
 
 .header {
 	background-color: #483D8B;
-	background-image: url(parley(1.png);
 }
 .header h1 {
-	font-family: "Montserrat";
+	font-family: "Montserrat", sans-serif;
 	color: white;
 	font-size: 130%;
 	padding: 10px;
@@ -33,7 +32,7 @@ li {
 li a {
 	display: block;
 	color: #483D8B;
-	font-family: "Montserrat";
+	font-family: "Montserrat", sans-serif;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -71,7 +70,7 @@ header{
 .title {
     color: #483D8B;
 	text-align: center;
-	font-family: "Montserrat";
+	font-family: "Montserrat", sans-serif;
 }
 
 .startButton {
@@ -116,7 +115,7 @@ header{
 }
 
 
-//*button {
+/*button {
 
     color: white;
     background-color: #89cff0 ;
@@ -133,7 +132,7 @@ header{
     margin: 4px 2px;
 
     cursor: pointer;
-}*//
+}*/
 	
 	
 
@@ -151,7 +150,7 @@ header{
 footer {
 	background-color: #483D8B;
 	color: white;
-	font-family: "Montserrat";
+	font-family: "Montserrat", sans-serif;
 	padding: 10px;
 }
 
