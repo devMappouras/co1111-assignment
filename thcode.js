@@ -165,6 +165,7 @@ function sendAnswer(thsession, answer){
         .then(jsonObject => {
 
 
+            console.log(answer);
 
 
 
