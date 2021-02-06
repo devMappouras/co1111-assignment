@@ -62,6 +62,8 @@ function getStartData() {
         });
 }
 
+let sending = false;
+
 //function that calls the questions from server
 function getQuestion(thsession) {
     //let questionNo = 0;
@@ -129,6 +131,10 @@ function getQuestion(thsession) {
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
                 answer = answerNo.value;
+                if (sending==="true") {
+                    sendAnswertoServer(thsession, answer);
+                    sending=false;
+                }
 
             }
             else if (questionType==="NUMERIC") {
@@ -157,9 +163,7 @@ function getQuestion(thsession) {
         });
 }
 
-function sendAnswer(){
-    sendAnswertoServer(thsession, answer);
-}
+
 
 
 function sendAnswertoServer(thsession, answer){
