@@ -157,7 +157,12 @@ function getQuestion(thsession) {
         });
 }
 
-function sendAnswer(thsession, answer){
+function sendAnswer(){
+    sendAnswertoServer(thsession, answer);
+}
+
+
+function sendAnswertoServer(thsession, answer){
 
     //example link
     //https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
