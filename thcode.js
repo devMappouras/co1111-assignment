@@ -131,7 +131,7 @@ function getQuestion(thsession) {
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
                 answer = answerNo.value;
-                if (sending==="true") {
+                if (sending===true) {
                     sendAnswertoServer(thsession, answer);
 
                 }
