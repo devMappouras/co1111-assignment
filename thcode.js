@@ -128,13 +128,14 @@ function getQuestion(thsession) {
                 //shows number input and submit button (changing css display to inline)
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
-
+                answer = answerNo.value;
 
             }
             else if (questionType==="NUMERIC") {
                 //shows number input and submit button (changing css display to inline)
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
+                answer = answerNo.value;
 
             }
             else if (questionType==="MCQ") {
@@ -147,8 +148,8 @@ function getQuestion(thsession) {
                 //shows text input and submit button (changing css display to inline)
                 answerString.style.display = "inline";
                 submitString.style.display = "inline";
-                answer = answerString.value;
-                console.log(answer);
+
+
             }
 
             let message = document.getElementById("message");
