@@ -133,7 +133,7 @@ function getQuestion(thsession) {
                 answer = answerNo.value;
                 if (sending==="true") {
                     sendAnswertoServer(thsession, answer);
-                    sending=false;
+
                 }
 
             }
