@@ -62,7 +62,7 @@ function getStartData() {
         });
 }
 
-let sending = false;
+let sending = 'false';
 
 //function that calls the questions from server
 function getQuestion(thsession) {
@@ -131,7 +131,7 @@ function getQuestion(thsession) {
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
                 answer = answerNo.value;
-                if (sending===true) {
+                if (sending==='true') {
                     sendAnswertoServer(thsession, answer);
 
                 }
