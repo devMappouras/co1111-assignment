@@ -94,6 +94,8 @@ function getQuestion(thsession) {
 
             //boolean variables for questions
             let isSkip = jsonObject.canBeSkipped;
+
+            //specifies if the user has already completed this treasure hunt
             let isComplete = jsonObject.completed;
 
             //get element in html to print question
@@ -135,6 +137,7 @@ function getQuestion(thsession) {
                 //get answer (using onclick in js)
                 submitNo.onclick = function() { answer = answerNo.value;
                                                 sendAnswertoServer(thsession, answer);
+
                                                 };
 
 
@@ -160,15 +163,10 @@ function getQuestion(thsession) {
 
             }
 
-            let message = document.getElementById("message");
+
 
         });
 }
-
-function getAnswer(){
-
-}
-
 
 function sendAnswertoServer(thsession, answer){
 
@@ -179,6 +177,34 @@ function sendAnswertoServer(thsession, answer){
         .then(jsonObject => {
 
             console.log(answer);
+
+            //initializing properties from server
+            let ansStatus = jsonObject.status;
+
+            //gets boolean if answer is correct
+            let isCorrect = jsonObject.correct;
+
+            //gets boolean if session has been completed
+            let isComplete = jsonObject.completed;
+
+            //gets message from server
+            let message = jsonObject.message;
+
+            let messageElement = document.getElementById("message");
+
+            //shows message according to status (OK/ERROR)
+            if (ansStatus==="OK") {
+                messageElement.innerText = message;
+            }
+            else if (ansStatus==="ERROR") {
+                let errorMessages = jsonObject.errorMessages;
+
+                for(let i=0; i < errorMessages.length; i++) {
+                    messageElement.innerText = errorMessages[i];
+                }
+            }
+
+
 
         });
 }
