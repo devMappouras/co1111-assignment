@@ -112,6 +112,7 @@ function getQuestion(thsession) {
             let submitNo = document.getElementById("submitNo");
             let answerNo = document.getElementById("answerNo");
 
+
             //boolean elements
             let boolF = document.getElementById("false");
             let boolT = document.getElementById("true");
@@ -130,11 +131,12 @@ function getQuestion(thsession) {
                 //shows number input and submit button (changing css display to inline)
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
-                answer = answerNo.value;
-                if (sending==='true') {
-                    sendAnswertoServer(thsession, answer);
 
-                }
+                //get answer (using onclick in js)
+                submitNo.onclick = function() { answer = answerNo.value;
+                                                sendAnswertoServer(thsession, answer);
+                                                };
+
 
             }
             else if (questionType==="NUMERIC") {
@@ -163,7 +165,9 @@ function getQuestion(thsession) {
         });
 }
 
+function getAnswer(){
 
+}
 
 
 function sendAnswertoServer(thsession, answer){
@@ -174,10 +178,7 @@ function sendAnswertoServer(thsession, answer){
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-
             console.log(answer);
-
-
 
         });
 }

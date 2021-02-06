@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="thcode.js"></script>
         <title>Welcome to Parley</title>
     </head>
 
@@ -20,22 +19,22 @@
 
             <!-- elements for string questions-->
             <input type="text" class="input" id="answerString">
-            <button class="questionButton" id="submitString" onclick="sending='true';">Check</button>
+            <button class="questionButton" id="submitString">Check</button>
 
             <!-- elements for Number questions-->
             <input type="number" class="input" id="answerNo">
-            <button class="questionButton" id="submitNo" onclick="sending='true';">Check</button>
+            <button class="questionButton" id="submitNo">Check</button>
 
             <!-- elements for boolean questions-->
             <br>
-            <button class="questionButton" value="true" id="true" onclick="sendAnswer()">true</button>
-            <button class="questionButton" value="false" id="false" onclick="sendAnswer()">false</button>
+            <button class="questionButton" value="true" id="true">true</button>
+            <button class="questionButton" value="false" id="false">false</button>
 
         </div>
 
         <p id="message"></p>
 
-        <script>
+        <script src="thcode.js">
             getStartData();
         </script>
 
