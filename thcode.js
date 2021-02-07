@@ -206,7 +206,7 @@ function getQuestion(thsession) {
                 submitString.style.display = "inline";
 
                 //get answer (using onclick in js)
-                submitNo.onclick = function() { answer = answerNo.value;
+                submitNo.onclick = function() { answer = answerString.value;
                                                 sendAnswertoServer(thsession, answer);
                                                 answerString.value = '';
                                                 };
