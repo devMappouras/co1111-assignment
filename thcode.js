@@ -174,9 +174,9 @@ function getQuestion(thsession) {
             else if (questionType==="MCQ") {
                 //shows 4 boolean submit buttons (changing css display to inline)
                 buttonA.style.display = "inline";
-                // buttonB.style.display = "inline";
-                // buttonC.style.display = "inline";
-                // buttonD.style.display = "inline";
+                buttonB.style.display = "inline";
+                buttonC.style.display = "inline";
+                buttonD.style.display = "inline";
 
                 //get answer (using onclick in js)
                 buttonA.onclick = function() { answer = 'A';
