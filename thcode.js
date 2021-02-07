@@ -121,6 +121,11 @@ function getQuestion(thsession) {
 
             let answer;
 
+            //hides all answer elements
+            questionButton = document.getElementsByClassName("questionButton");
+            questionButton.style="display: none;";
+
+
             //checks what type is each question and acts accordingly
             if (questionType==="BOOLEAN") {
                 //shows boolean submit buttons (changing css display to inline)
@@ -137,7 +142,7 @@ function getQuestion(thsession) {
                 //get answer (using onclick in js)
                 submitNo.onclick = function() { answer = answerNo.value;
                                                 sendAnswertoServer(thsession, answer);
-
+                                                answerNo.value = '';
                                                 };
 
 
@@ -160,6 +165,11 @@ function getQuestion(thsession) {
                 answerString.style.display = "inline";
                 submitString.style.display = "inline";
 
+                //get answer (using onclick in js)
+                submitNo.onclick = function() { answer = answerNo.value;
+                                                sendAnswertoServer(thsession, answer);
+                                                answerString.value = '';
+                                                };
 
             }
 
