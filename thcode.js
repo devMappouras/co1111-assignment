@@ -170,6 +170,11 @@ function getQuestion(thsession) {
                 submitNo.style.display = "inline";
                 answer = answerNo.value;
 
+                //get answer (using onclick in js)
+                submitNo.onclick = function() { answer = answerNo.value;
+                                                sendAnswertoServer(thsession, answer);
+                                                answerNo.value = '';
+                                                };
             }
             else if (questionType==="MCQ") {
                 //shows 4 boolean submit buttons (changing css display to inline)
@@ -179,24 +184,24 @@ function getQuestion(thsession) {
                 buttonD.style.display = "inline";
 
                 //get answer (using onclick in js)
-                buttonA.onclick = function() { answer = 'A';
-                                            sendAnswertoServer(thsession, answer);
-                                            };
+                buttonA.onclick = function() {  answer = 'A';
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
                 //get answer (using onclick in js)
-                buttonB.onclick = function() { answer = 'B';
-                                            sendAnswertoServer(thsession, answer);
-                                             };
+                buttonB.onclick = function() {  answer = 'B';
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
                 //get answer (using onclick in js)
-                buttonC.onclick = function() { answer = 'C';
-                                            sendAnswertoServer(thsession, answer);
-                                            };
+                buttonC.onclick = function() {  answer = 'C';
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
                 //get answer (using onclick in js)
-                buttonD.onclick = function() { answer = 'D';
-                                            sendAnswertoServer(thsession, answer);
-                                            };
+                buttonD.onclick = function() {  answer = 'D';
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
 
             }
@@ -207,9 +212,9 @@ function getQuestion(thsession) {
 
                 //get answer (using onclick in js)
                 submitString.onclick = function() { answer = answerString.value;
-                                                sendAnswertoServer(thsession, answer);
-                                                answerString.value = '';
-                                                };
+                                                    sendAnswertoServer(thsession, answer);
+                                                    answerString.value = '';
+                                                    };
 
             }
 
