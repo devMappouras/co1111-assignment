@@ -210,6 +210,7 @@ function sendAnswertoServer(thsession, answer){
                 messageElement.innerText = message;
                 if (isCorrect===true) {
                     getQuestion(thsession);
+                    messageElement.delay(3000).innerText = "";
                 }
             }
             else if (ansStatus==="ERROR") {
