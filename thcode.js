@@ -134,12 +134,17 @@ function getQuestion(thsession) {
                 boolT.style.display = "inline";
                 boolF.style.display = "inline";
 
+                //get answer (using onclick in js)
+                boolT.onclick = function() { answer = "true";
+                                            sendAnswertoServer(thsession, answer);
+                                            answerNo.value = '';
+                                            };
 
                 //get answer (using onclick in js)
-                submitNo.onclick = function() { answer = answerNo.value;
-                    sendAnswertoServer(thsession, answer);
-                    answerNo.value = '';
-                };
+                boolF.onclick = function() { answer = "false";
+                                            sendAnswertoServer(thsession, answer);
+                                            answerNo.value = '';
+                                            };
 
             }
             else if (questionType==="INTEGER") {
