@@ -126,6 +126,12 @@ function getQuestion(thsession) {
             let boolF = document.getElementById("boolF");
             let boolT = document.getElementById("boolT");
 
+            //boolean elements
+            let A = document.getElementById("A");
+            let B = document.getElementById("B");
+            let C = document.getElementById("C");
+            let D = document.getElementById("D");
+
             let answer;
 
             //checks what type is each question and acts accordingly
@@ -167,7 +173,30 @@ function getQuestion(thsession) {
             }
             else if (questionType==="MCQ") {
                 //shows 4 boolean submit buttons (changing css display to inline)
+                A.style.display = "inline";
+                B.style.display = "inline";
+                C.style.display = "inline";
+                D.style.display = "inline";
 
+                //get answer (using onclick in js)
+                A.onclick = function() { answer = A;
+                                            sendAnswertoServer(thsession, answer);
+                                            };
+
+                //get answer (using onclick in js)
+                B.onclick = function() { answer = B;
+                                            sendAnswertoServer(thsession, answer);
+                                             };
+
+                //get answer (using onclick in js)
+                C.onclick = function() { answer = C;
+                                            sendAnswertoServer(thsession, answer);
+                                            };
+
+                //get answer (using onclick in js)
+                D.onclick = function() { answer = D;
+                                            sendAnswertoServer(thsession, answer);
+                                            };
 
 
             }
