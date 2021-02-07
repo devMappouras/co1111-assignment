@@ -125,6 +125,9 @@ function getQuestion(thsession) {
             questionButton = document.getElementsByClassName("questionButton");
             questionButton.style.display = "none";
 
+            for (i = 0; i < questionButton.length; i++) {
+                questionButton[i].style.display = "none";
+            }
 
             //checks what type is each question and acts accordingly
             if (questionType==="BOOLEAN") {
