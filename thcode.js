@@ -74,6 +74,13 @@ function getQuestion(thsession) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
+            //hides all answer elements
+            questionButton = document.getElementsByClassName("questionButton");
+
+            for (i = 0; i < questionButton.length; i++) {
+                questionButton[i].style.display = "none";
+            }
+
             //initializing properties from server
             let qStatus = jsonObject.status;
             let totalQuestions = jsonObject.numOfQuestions;
@@ -120,14 +127,6 @@ function getQuestion(thsession) {
             let boolT = document.getElementById("true");
 
             let answer;
-
-            //hides all answer elements
-            questionButton = document.getElementsByClassName("questionButton");
-            questionButton.style.display = "none";
-
-            for (let i = 0; i < questionButton.length; i++) {
-                questionButton[i].style.display = "none";
-            }
 
             //checks what type is each question and acts accordingly
             if (questionType==="BOOLEAN") {
