@@ -135,6 +135,12 @@ function getQuestion(thsession) {
                 boolF.style.display = "inline";
 
 
+                //get answer (using onclick in js)
+                submitNo.onclick = function() { answer = answerNo.value;
+                    sendAnswertoServer(thsession, answer);
+                    answerNo.value = '';
+                };
+
             }
             else if (questionType==="INTEGER") {
                 //shows number input and submit button (changing css display to inline)
@@ -208,13 +214,9 @@ function sendAnswertoServer(thsession, answer){
             //shows message according to status (OK/ERROR)
             if (ansStatus==="OK") {
                 messageElement.innerText = message;
+                messageElement.style.display = "block";
                 if (isCorrect===true) {
                     getQuestion(thsession);
-
-                    $(document).ready(function(){
-                        $('#messageElement').hide().delay(3000).fadeOut('slow');
-                        messageElement.innerText = "";
-                    });
                 }
             }
             else if (ansStatus==="ERROR") {
