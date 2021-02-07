@@ -123,8 +123,8 @@ function getQuestion(thsession) {
 
 
             //boolean elements
-            let boolF = document.getElementById("false");
-            let boolT = document.getElementById("true");
+            let boolF = document.getElementById("boolF");
+            let boolT = document.getElementById("boolT");
 
             let answer;
 
@@ -135,15 +135,13 @@ function getQuestion(thsession) {
                 boolF.style.display = "inline";
 
                 //get answer (using onclick in js)
-                boolT.onclick = function() { answer = "true";
+                boolT.onclick = function() { answer = true;
                                             sendAnswertoServer(thsession, answer);
-                                            answerNo.value = '';
                                             };
 
                 //get answer (using onclick in js)
-                boolF.onclick = function() { answer = "false";
+                boolF.onclick = function() { answer = false;
                                             sendAnswertoServer(thsession, answer);
-                                            answerNo.value = '';
                                             };
 
             }
