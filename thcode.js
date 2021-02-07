@@ -183,6 +183,7 @@ function sendAnswertoServer(thsession, answer){
 
             //gets boolean if answer is correct
             let isCorrect = jsonObject.correct;
+            console.log(isCorrect);
 
             //gets boolean if session has been completed
             let isComplete = jsonObject.completed;
@@ -195,6 +196,9 @@ function sendAnswertoServer(thsession, answer){
             //shows message according to status (OK/ERROR)
             if (ansStatus==="OK") {
                 messageElement.innerText = message;
+                if (isCorrect===true) {
+                    getQuestion(thsession);
+                }
             }
             else if (ansStatus==="ERROR") {
                 let errorMessages = jsonObject.errorMessages;
@@ -203,6 +207,7 @@ function sendAnswertoServer(thsession, answer){
                     messageElement.innerText = errorMessages[i];
                 }
             }
+
 
 
 
