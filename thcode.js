@@ -210,7 +210,11 @@ function sendAnswertoServer(thsession, answer){
                 messageElement.innerText = message;
                 if (isCorrect===true) {
                     getQuestion(thsession);
-                    messageElement.innerText = "";
+
+                    $(document).ready(function(){
+                        $('#messageElement').hide().delay(3000).fadeOut('slow');
+                        messageElement.innerText = "";
+                    });
                 }
             }
             else if (ansStatus==="ERROR") {
