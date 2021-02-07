@@ -123,7 +123,7 @@ function getQuestion(thsession) {
 
             //hides all answer elements
             questionButton = document.getElementsByClassName("questionButton");
-            questionButton.style.display = none;
+            questionButton.style.display = "none";
 
 
             //checks what type is each question and acts accordingly
