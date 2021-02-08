@@ -311,7 +311,7 @@ function getLocation() {
 }
 
 //function sends player's location to server
-function sendPosition(thsession, position) {
+function sendPosition(position, thsession) {
 
     //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 
