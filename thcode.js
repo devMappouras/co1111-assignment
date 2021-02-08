@@ -236,7 +236,7 @@ function getQuestion(thsession) {
             else if (questionType==="TEXT") {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation();
+                    getLocation(thsession);
                     setInterval(getLocation, 30000);
                 }
 
@@ -301,7 +301,7 @@ function sendAnswertoServer(thsession, answer){
 }
 
 //function gets player location
-function getLocation() {
+function getLocation(thsession) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
