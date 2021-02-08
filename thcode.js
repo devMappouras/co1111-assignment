@@ -303,7 +303,7 @@ function sendAnswertoServer(thsession, answer){
 //function gets player location
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(sendPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
         alert("Geolocation is not supported by your browser.");
@@ -311,7 +311,7 @@ function getLocation() {
 }
 
 //function sends player's location to server
-function sendPosition(position, thsession) {
+function showPosition(position, thsession) {
 
     //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 
