@@ -62,11 +62,8 @@ function getStartData() {
         });
 }
 
-let sending = 'false';
-
 //function that calls the questions from server
 function getQuestion(thsession) {
-    //let questionNo = 0;
 
     //example link
     //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
@@ -99,18 +96,20 @@ function getQuestion(thsession) {
             let questionType = jsonObject.questionType;
             console.log(questionType)
 
-            //boolean variables for questions
+            //specifies if question can be skipped
             let isSkip = jsonObject.canBeSkipped;
 
             //specifies if the user has already completed this treasure hunt
             let isComplete = jsonObject.completed;
+
+            //specifies if question requires location
+            let isLocation = jsonObject.requiresLocation;
 
             //get element in html to print question
             let question = document.getElementById("question");
 
             //exports question to player
             question.innerHTML = questionText;
-
 
             //functionality of HTML elements
             //text elements
@@ -132,13 +131,24 @@ function getQuestion(thsession) {
             let buttonC = document.getElementById("buttonC");
             let buttonD = document.getElementById("buttonD");
 
+            //let locMessage = document.getElementById("locMessage");
+
             let answer;
 
-            //checks what type is each question and acts accordingly
+
+
+            //checks what type each question is and acts accordingly
             if (questionType==="BOOLEAN") {
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation();
+                    setInterval(getLocation, 30000);
+                }
+
                 //shows boolean submit buttons (changing css display to inline)
                 boolT.style.display = "inline";
                 boolF.style.display = "inline";
+
 
                 //get answer (using onclick in js)
                 boolT.onclick = function() { answer = true;
@@ -152,6 +162,12 @@ function getQuestion(thsession) {
 
             }
             else if (questionType==="INTEGER") {
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation();
+                    setInterval(getLocation, 30000);
+                }
+
                 //shows number input and submit button (changing css display to inline)
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
@@ -165,6 +181,12 @@ function getQuestion(thsession) {
 
             }
             else if (questionType==="NUMERIC") {
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation();
+                    setInterval(getLocation, 30000);
+                }
+
                 //shows number input and submit button (changing css display to inline)
                 answerNo.style.display = "inline";
                 submitNo.style.display = "inline";
@@ -177,6 +199,12 @@ function getQuestion(thsession) {
                                                 };
             }
             else if (questionType==="MCQ") {
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation();
+                    setInterval(getLocation, 30000);
+                }
+
                 //shows 4 boolean submit buttons (changing css display to inline)
                 buttonA.style.display = "inline";
                 buttonB.style.display = "inline";
@@ -206,6 +234,12 @@ function getQuestion(thsession) {
 
             }
             else if (questionType==="TEXT") {
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation();
+                    setInterval(getLocation, 30000);
+                }
+
                 //shows text input and submit button (changing css display to inline)
                 answerString.style.display = "inline";
                 submitString.style.display = "inline";
@@ -263,9 +297,46 @@ function sendAnswertoServer(thsession, answer){
                     messageElement.innerText = errorMessages[i];
                 }
             }
+        });
+}
+
+//function gets player location
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(sendPosition);
+    }
+    else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+//function sends player's location to server
+function sendPosition(thsession, position) {
+
+    //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+
+    //example link
+    //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
+    fetch("https://codecyprus.org/th/api/question?session="+ thsession +"&latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude +"")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            //initializing properties from server
+            let locStatus = jsonObject.status;
 
 
+            //gets message from server
+            let message = jsonObject.message;
+
+            let locMessage = document.getElementById("locMessage");
+
+            if (locStatus==="OK") {
+                locMessage.innerText = message;
+                locMessage.style.display = "block";
+            }
 
 
         });
-}
+    }
