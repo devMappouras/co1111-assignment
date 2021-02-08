@@ -144,7 +144,7 @@ function getQuestion(thsession) {
             if (questionType==="BOOLEAN") {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation();
+                    getLocation(thsession);
                     setInterval(getLocation, 30000);
                 }
 
@@ -167,7 +167,7 @@ function getQuestion(thsession) {
             else if (questionType==="INTEGER") {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation();
+                    getLocation(thsession);
                     setInterval(getLocation, 30000);
                 }
 
@@ -186,7 +186,7 @@ function getQuestion(thsession) {
             else if (questionType==="NUMERIC") {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation();
+                    getLocation(thsession);
                     setInterval(getLocation, 30000);
                 }
 
@@ -204,7 +204,7 @@ function getQuestion(thsession) {
             else if (questionType==="MCQ") {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation();
+                    getLocation(thsession);
                     setInterval(getLocation, 30000);
                 }
 
@@ -335,12 +335,8 @@ function skipQuestion(thsession) {
             if (skipStatus==="OK") {
                 messageElement.innerText = message;
                 messageElement.style.display = "block";
-
+                getQuestion(thsession);
             }
-            getQuestion(thsession);
-
-
-
 
         });
     }
