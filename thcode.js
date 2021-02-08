@@ -314,12 +314,16 @@ function getLocation() {
 function sendPosition(thsession, position) {
 
     //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
+
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    console.log(latitude);
+    console.log(longitude);
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-    fetch("https://codecyprus.org/th/api/question?session="+ thsession +"&latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude +"")
+    fetch("https://codecyprus.org/th/api/question?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude +"")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
