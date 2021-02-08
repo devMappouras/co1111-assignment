@@ -335,8 +335,9 @@ function skipQuestion(thsession) {
             if (skipStatus==="OK") {
                 messageElement.innerText = message;
                 messageElement.style.display = "block";
-                getQuestion(thsession);
+
             }
+            getQuestion(thsession);
 
 
 
