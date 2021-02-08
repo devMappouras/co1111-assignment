@@ -99,7 +99,7 @@ function getQuestion(thsession) {
             //specifies if question can be skipped
             let isSkip = jsonObject.canBeSkipped;
 
-            //specifies if the user has already completed this treasure hunt
+            //specifies if the user has completed this treasure hunt
             let isComplete = jsonObject.completed;
 
             //specifies if question requires location
@@ -131,11 +131,14 @@ function getQuestion(thsession) {
             let buttonC = document.getElementById("buttonC");
             let buttonD = document.getElementById("buttonD");
 
-            //let locMessage = document.getElementById("locMessage");
-
             let answer;
 
+            //let locMessage = document.getElementById("locMessage");
 
+            //checks if question can be skipped
+            if (isSkip===true){
+               skipQuestion(thsession);
+            }
 
             //checks what type each question is and acts accordingly
             if (questionType==="BOOLEAN") {
@@ -300,6 +303,47 @@ function sendAnswertoServer(thsession, answer){
         });
 }
 
+function skipQuestion(thsession) {
+
+    //initializing button element
+    let skipButton = document.getElementById("skipButton");
+
+    //makes skipButton visible
+    skipButton.style.display = "block";
+
+    let messageElement = document.getElementById("message");
+
+    //if skipButton pressed then skips the current question
+    skipButton.onclick = function()
+    {
+        //example link
+        //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+        fetch("https://codecyprus.org/th/api/skip?session="+ thsession +"")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            //initializing properties from server
+            let skipStatus = jsonObject.status;
+
+            //specifies if the user has completed this treasure hunt
+            let isComplete = jsonObject.completed;
+
+            //gets message from server
+            let message = jsonObject.message;
+
+            //shows message according to status (OK/ERROR)
+            if (skipStatus==="OK") {
+                messageElement.innerText = message;
+                messageElement.style.display = "block";
+            }
+
+
+
+
+        });
+    }
+}
+
 //function gets player location
 function getLocation(thsession) {
     if (navigator.geolocation) {
@@ -323,7 +367,7 @@ function showPosition(position, thsession) {
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-    fetch("https://codecyprus.org/th/api/question?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude +"")
+    fetch("https://codecyprus.org/th/api/location?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude +"")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
