@@ -135,12 +135,14 @@ function getQuestion(thsession) {
 
             //exports question to player
             question.innerHTML = questionText;
-
             //initialising the variable which sends the answer to server
             let answer;
 
             //checks if treasure hunt is not completed
             if (isComplete===false) {
+
+                //show question text
+                question.style.display = "block";
 
                 //checks if question can be skipped
                 if (isSkip===true){
@@ -264,8 +266,6 @@ function getQuestion(thsession) {
             }
             //when treasure hunt ends, brings player to leaderboard
             else if (isComplete) {
-                //hides question text when th finishes
-                question.style.display = "none";
                 getLeaderboard(thsession);
             }
         });
