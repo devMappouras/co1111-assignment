@@ -356,7 +356,12 @@ function skipQuestion(thsession) {
 //function gets player location
 function getLocation(thsession) {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(function(position)
+        {
+            showPosition(position.coords.latitude, position.coords.longitude, thsession);
+
+        });
+
     }
     else {
         alert("Geolocation is not supported by your browser.");
@@ -364,12 +369,12 @@ function getLocation(thsession) {
 }
 
 //function sends player's location to server
-function showPosition(position, thsession) {
+function showPosition(latitude, longitude, thsession) {
 
     //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+    // let latitude = position.coords.latitude;
+    // let longitude = position.coords.longitude;
 
     console.log(latitude);
     console.log(longitude);
