@@ -406,7 +406,7 @@ function showPosition(position, thsession) {
 
 //function gets leaderboard
 function getLeaderboard(thsession) {
-    let limit = 10;
+    let limit = 20;
 
     //example link
     //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
