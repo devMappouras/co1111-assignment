@@ -389,7 +389,7 @@ function showPosition(latitude, longitude, thsession) {
             let locStatus = jsonObject.status;
 
             //gets message from server
-            let message = jsonObject.errorMessages;
+            let message = jsonObject.message;
             console.log(message);
             console.log(locStatus);
 
