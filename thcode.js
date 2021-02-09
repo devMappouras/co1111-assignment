@@ -386,6 +386,7 @@ function showPosition(position, thsession) {
 
             //gets message from server
             let message = jsonObject.message;
+            console.log(message);
 
             let locMessage = document.getElementById("locMessage");
 
