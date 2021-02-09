@@ -133,14 +133,14 @@ function getQuestion(thsession) {
             let buttonC = document.getElementById("buttonC");
             let buttonD = document.getElementById("buttonD");
 
+            //exports question to player
+            question.innerHTML = questionText;
+
             //initialising the variable which sends the answer to server
             let answer;
 
             //checks if treasure hunt is not completed
             if (isComplete===false) {
-
-                //exports question to player
-                question.innerHTML = questionText;
 
                 //checks if question can be skipped
                 if (isSkip===true){
