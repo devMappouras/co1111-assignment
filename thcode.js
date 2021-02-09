@@ -149,13 +149,14 @@ function getQuestion(thsession) {
                     skipQuestion(thsession);
                 }
 
+                //if answer requires location then get location every 30seconds
+                if (isLocation===true) {
+                    getLocation(thsession);
+                    setInterval(getLocation, 30000);
+                }
+
                 //checks what type each question is and acts accordingly
                 if (questionType==="BOOLEAN") {
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation===true) {
-                        getLocation(thsession);
-                        setInterval(getLocation, 30000);
-                    }
 
                     //shows boolean submit buttons (changing css display to inline)
                     boolT.style.display = "inline";
@@ -174,11 +175,6 @@ function getQuestion(thsession) {
 
                 }
                 else if (questionType==="INTEGER") {
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation===true) {
-                        getLocation(thsession);
-                        setInterval(getLocation, 30000);
-                    }
 
                     //shows number input and submit button (changing css display to inline)
                     answerNo.style.display = "inline";
@@ -193,11 +189,6 @@ function getQuestion(thsession) {
 
                 }
                 else if (questionType==="NUMERIC") {
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation===true) {
-                        getLocation(thsession);
-                        setInterval(getLocation, 30000);
-                    }
 
                     //shows number input and submit button (changing css display to inline)
                     answerNo.style.display = "inline";
@@ -211,11 +202,6 @@ function getQuestion(thsession) {
                                                     };
                 }
                 else if (questionType==="MCQ") {
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation===true) {
-                        getLocation(thsession);
-                        setInterval(getLocation, 30000);
-                    }
 
                     //shows 4 boolean submit buttons (changing css display to inline)
                     buttonA.style.display = "inline";
@@ -246,11 +232,6 @@ function getQuestion(thsession) {
 
                 }
                 else if (questionType==="TEXT") {
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation===true) {
-                        getLocation(thsession);
-                        setInterval(getLocation, 30000);
-                    }
 
                     //shows text input and submit button (changing css display to inline)
                     answerString.style.display = "inline";
