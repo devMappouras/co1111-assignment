@@ -371,8 +371,8 @@ function showPosition(position, thsession) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
-    //console.log(latitude);
-    //console.log(longitude);
+    console.log(latitude);
+    console.log(longitude);
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
@@ -389,9 +389,11 @@ function showPosition(position, thsession) {
 
             let locMessage = document.getElementById("locMessage");
 
+            locMessage.innerText = message;
+            locMessage.style.display = "block";
+
             if (locStatus==="OK") {
-                locMessage.innerText = message;
-                locMessage.style.display = "block";
+
             }
 
 
