@@ -145,7 +145,7 @@ function getQuestion(thsession) {
             }
 
             //checks if treasure hunt is not completed
-            if (isComplete!==true) {
+            if (isComplete===false) {
 
                 //checks if question can be skipped
                 if (isSkip===true){
@@ -270,10 +270,7 @@ function getQuestion(thsession) {
                                                         };
 
                 }
-        }
-
-
-
+            }
         });
 }
 
@@ -414,10 +411,15 @@ function getLeaderboard(thsession) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            ////ul element that shows teams score
+            //ul element that shows teams score
             let lbScores = document.getElementById("lbScores");
-            //shows ul element
+
+            //gets a element
+            let toHome = document.getElementById("toHome");
+
+            //shows ul and a element
             lbScores.style.display = "block";
+            toHome.style.display = "block";
 
             //gets scores
             let leaderboard = jsonObject.leaderboard;
