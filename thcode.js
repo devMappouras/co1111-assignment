@@ -383,12 +383,13 @@ function showPosition(position, thsession) {
             //initializing properties from server
             let locStatus = jsonObject.status;
 
-
             //gets message from server
-            let message = jsonObject.message;
+            let message = jsonObject.errorMessages;
             console.log(message);
 
             let locMessage = document.getElementById("locMessage");
+
+
 
             locMessage.innerText = message;
             locMessage.style.display = "block";
