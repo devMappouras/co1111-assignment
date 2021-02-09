@@ -80,14 +80,15 @@ function getQuestion(thsession) {
 
             //initializing properties from server
             let qStatus = jsonObject.status;
+
+            //gets the number of total questions
             let totalQuestions = jsonObject.numOfQuestions;
+
+            //calculates the final question
+            let finalQuestion = totalQuestions - 1;
 
             //gets the number of current question
             let questionNo = jsonObject.currentQuestionIndex;
-
-            //calculates the final question
-            let finalQuestion = jsonObject.numOfQuestions;
-            finalQuestion = finalQuestion - 1;
 
             //gets question from server
             let questionText = jsonObject.questionText;
@@ -101,6 +102,7 @@ function getQuestion(thsession) {
 
             //specifies if the user has completed this treasure hunt
             let isComplete = jsonObject.completed;
+            console.log("th is: " + isComplete);
 
             //specifies if question requires location
             let isLocation = jsonObject.requiresLocation;
@@ -131,9 +133,8 @@ function getQuestion(thsession) {
             let buttonC = document.getElementById("buttonC");
             let buttonD = document.getElementById("buttonD");
 
+            //initialising the variable which sends the answer to server
             let answer;
-
-            //let locMessage = document.getElementById("locMessage");
 
             //checks if question can be skipped
             if (isSkip===true){
