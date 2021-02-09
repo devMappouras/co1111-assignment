@@ -152,7 +152,7 @@ function getQuestion(thsession) {
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
                     getLocation(thsession);
-                    setInterval(getLocation, 30000);
+                    setInterval(getLocation(thsession), 30000);
                 }
 
                 //checks what type each question is and acts accordingly
