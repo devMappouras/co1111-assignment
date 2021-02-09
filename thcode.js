@@ -264,6 +264,8 @@ function getQuestion(thsession) {
             }
             //when treasure hunt ends, brings player to leaderboard
             else if (isComplete) {
+                //hides question text when th finishes
+                question.style.display = "none";
                 getLeaderboard(thsession);
             }
         });
