@@ -96,7 +96,7 @@ function getQuestion(thsession) {
 
             //gets what type is the question
             let questionType = jsonObject.questionType;
-            console.log(questionType)
+            //console.log(questionType)
 
             //specifies if question can be skipped
             let isSkip = jsonObject.canBeSkipped;
@@ -139,14 +139,10 @@ function getQuestion(thsession) {
             //initialising the variable which sends the answer to server
             let answer;
 
-            //when treasure hunt ends, brings player to leaderboard
-            if (isComplete) {
-                getLeaderboard(thsession);
-            }
+
 
             //checks if treasure hunt is not completed
             if (isComplete===false) {
-
                 //checks if question can be skipped
                 if (isSkip===true){
                     skipQuestion(thsession);
@@ -176,7 +172,6 @@ function getQuestion(thsession) {
                                                 };
 
                 }
-
                 else if (questionType==="INTEGER") {
                     //if answer requires location then get location every 30seconds
                     if (isLocation===true) {
@@ -196,7 +191,6 @@ function getQuestion(thsession) {
 
 
                 }
-
                 else if (questionType==="NUMERIC") {
                     //if answer requires location then get location every 30seconds
                     if (isLocation===true) {
@@ -215,7 +209,6 @@ function getQuestion(thsession) {
                                                     answerNo.value = '';
                                                     };
                 }
-
                 else if (questionType==="MCQ") {
                     //if answer requires location then get location every 30seconds
                     if (isLocation===true) {
@@ -251,7 +244,6 @@ function getQuestion(thsession) {
 
 
                 }
-
                 else if (questionType==="TEXT") {
                     //if answer requires location then get location every 30seconds
                     if (isLocation===true) {
@@ -270,6 +262,10 @@ function getQuestion(thsession) {
                                                         };
 
                 }
+            }
+            //when treasure hunt ends, brings player to leaderboard
+            else if (isComplete) {
+                getLeaderboard(thsession);
             }
         });
 }
