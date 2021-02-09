@@ -9,6 +9,7 @@ function getTreasureHunts() {
 
             let playersName=prompt("Enter Your Name:", "");
 
+            //ul element that shows treasure hunts list
             let thList = document.getElementById("thList");
             let treasureHunts = jsonObject.treasureHunts;
 
@@ -35,8 +36,8 @@ function getStartData() {
     const playersName = urlParams.get('player')
     let treasureHuntID = urlParams.get('treasure-hunt-id')
 
-    console.log(playersName);
-    console.log(treasureHuntID);
+    //console.log(playersName);
+    //console.log(treasureHuntID);
 
     //example link
     //https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
@@ -56,8 +57,8 @@ function getStartData() {
                 document.write(jsonObject.errorMessages);
             }
 
-            console.log(thsession);
-            console.log(totalQuestions);
+            //console.log(thsession);
+            //console.log(totalQuestions);
 
         });
 }
@@ -102,7 +103,9 @@ function getQuestion(thsession) {
 
             //specifies if the user has completed this treasure hunt
             let isComplete = jsonObject.completed;
-            console.log("th is: " + isComplete);
+
+            //testing when treasure hunt ends
+            //console.log("th is: " + isComplete);
 
             //specifies if question requires location
             let isLocation = jsonObject.requiresLocation;
@@ -136,125 +139,138 @@ function getQuestion(thsession) {
             //initialising the variable which sends the answer to server
             let answer;
 
-            //checks if question can be skipped
-            if (isSkip===true){
-               skipQuestion(thsession);
+            //when treasure hunt ends, brings player to leaderboard
+            if (isComplete) {
+                getLeaderboard(thsession);
             }
 
-            //checks what type each question is and acts accordingly
-            if (questionType==="BOOLEAN") {
-                //if answer requires location then get location every 30seconds
-                if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation, 30000);
+            //checks if treasure hunt is not completed
+            if (isComplete!==true) {
+
+                //checks if question can be skipped
+                if (isSkip===true){
+                    skipQuestion(thsession);
                 }
 
-                //shows boolean submit buttons (changing css display to inline)
-                boolT.style.display = "inline";
-                boolF.style.display = "inline";
+                //checks what type each question is and acts accordingly
+                if (questionType==="BOOLEAN") {
+                    //if answer requires location then get location every 30seconds
+                    if (isLocation===true) {
+                        getLocation(thsession);
+                        setInterval(getLocation, 30000);
+                    }
+
+                    //shows boolean submit buttons (changing css display to inline)
+                    boolT.style.display = "inline";
+                    boolF.style.display = "inline";
 
 
-                //get answer (using onclick in js)
-                boolT.onclick = function() { answer = true;
-                                            sendAnswertoServer(thsession, answer);
-                                            };
+                    //get answer (using onclick in js)
+                    boolT.onclick = function() { answer = true;
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
-                //get answer (using onclick in js)
-                boolF.onclick = function() { answer = false;
-                                            sendAnswertoServer(thsession, answer);
-                                            };
+                    //get answer (using onclick in js)
+                    boolF.onclick = function() { answer = false;
+                                                sendAnswertoServer(thsession, answer);
+                                                };
 
-            }
-            else if (questionType==="INTEGER") {
-                //if answer requires location then get location every 30seconds
-                if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation, 30000);
                 }
 
-                //shows number input and submit button (changing css display to inline)
-                answerNo.style.display = "inline";
-                submitNo.style.display = "inline";
+                else if (questionType==="INTEGER") {
+                    //if answer requires location then get location every 30seconds
+                    if (isLocation===true) {
+                        getLocation(thsession);
+                        setInterval(getLocation, 30000);
+                    }
 
-                //get answer (using onclick in js)
-                submitNo.onclick = function() { answer = answerNo.value;
-                                                sendAnswertoServer(thsession, answer);
-                                                answerNo.value = '';
-                                                };
+                    //shows number input and submit button (changing css display to inline)
+                    answerNo.style.display = "inline";
+                    submitNo.style.display = "inline";
 
-
-            }
-            else if (questionType==="NUMERIC") {
-                //if answer requires location then get location every 30seconds
-                if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation, 30000);
-                }
-
-                //shows number input and submit button (changing css display to inline)
-                answerNo.style.display = "inline";
-                submitNo.style.display = "inline";
-                answer = answerNo.value;
-
-                //get answer (using onclick in js)
-                submitNo.onclick = function() { answer = answerNo.value;
-                                                sendAnswertoServer(thsession, answer);
-                                                answerNo.value = '';
-                                                };
-            }
-            else if (questionType==="MCQ") {
-                //if answer requires location then get location every 30seconds
-                if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation, 30000);
-                }
-
-                //shows 4 boolean submit buttons (changing css display to inline)
-                buttonA.style.display = "inline";
-                buttonB.style.display = "inline";
-                buttonC.style.display = "inline";
-                buttonD.style.display = "inline";
-
-                //get answer (using onclick in js)
-                buttonA.onclick = function() {  answer = 'A';
-                                                sendAnswertoServer(thsession, answer);
-                                                };
-
-                //get answer (using onclick in js)
-                buttonB.onclick = function() {  answer = 'B';
-                                                sendAnswertoServer(thsession, answer);
-                                                };
-
-                //get answer (using onclick in js)
-                buttonC.onclick = function() {  answer = 'C';
-                                                sendAnswertoServer(thsession, answer);
-                                                };
-
-                //get answer (using onclick in js)
-                buttonD.onclick = function() {  answer = 'D';
-                                                sendAnswertoServer(thsession, answer);
-                                                };
-
-
-            }
-            else if (questionType==="TEXT") {
-                //if answer requires location then get location every 30seconds
-                if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation, 30000);
-                }
-
-                //shows text input and submit button (changing css display to inline)
-                answerString.style.display = "inline";
-                submitString.style.display = "inline";
-
-                //get answer (using onclick in js)
-                submitString.onclick = function() { answer = answerString.value;
+                    //get answer (using onclick in js)
+                    submitNo.onclick = function() { answer = answerNo.value;
                                                     sendAnswertoServer(thsession, answer);
-                                                    answerString.value = '';
+                                                    answerNo.value = '';
                                                     };
 
-            }
+
+                }
+
+                else if (questionType==="NUMERIC") {
+                    //if answer requires location then get location every 30seconds
+                    if (isLocation===true) {
+                        getLocation(thsession);
+                        setInterval(getLocation, 30000);
+                    }
+
+                    //shows number input and submit button (changing css display to inline)
+                    answerNo.style.display = "inline";
+                    submitNo.style.display = "inline";
+                    answer = answerNo.value;
+
+                    //get answer (using onclick in js)
+                    submitNo.onclick = function() { answer = answerNo.value;
+                                                    sendAnswertoServer(thsession, answer);
+                                                    answerNo.value = '';
+                                                    };
+                }
+
+                else if (questionType==="MCQ") {
+                    //if answer requires location then get location every 30seconds
+                    if (isLocation===true) {
+                        getLocation(thsession);
+                        setInterval(getLocation, 30000);
+                    }
+
+                    //shows 4 boolean submit buttons (changing css display to inline)
+                    buttonA.style.display = "inline";
+                    buttonB.style.display = "inline";
+                    buttonC.style.display = "inline";
+                    buttonD.style.display = "inline";
+
+                    //get answer (using onclick in js)
+                    buttonA.onclick = function() {  answer = 'A';
+                                                    sendAnswertoServer(thsession, answer);
+                                                    };
+
+                    //get answer (using onclick in js)
+                    buttonB.onclick = function() {  answer = 'B';
+                                                    sendAnswertoServer(thsession, answer);
+                                                    };
+
+                    //get answer (using onclick in js)
+                    buttonC.onclick = function() {  answer = 'C';
+                                                    sendAnswertoServer(thsession, answer);
+                                                    };
+
+                    //get answer (using onclick in js)
+                    buttonD.onclick = function() {  answer = 'D';
+                                                    sendAnswertoServer(thsession, answer);
+                                                    };
+
+
+                }
+
+                else if (questionType==="TEXT") {
+                    //if answer requires location then get location every 30seconds
+                    if (isLocation===true) {
+                        getLocation(thsession);
+                        setInterval(getLocation, 30000);
+                    }
+
+                    //shows text input and submit button (changing css display to inline)
+                    answerString.style.display = "inline";
+                    submitString.style.display = "inline";
+
+                    //get answer (using onclick in js)
+                    submitString.onclick = function() { answer = answerString.value;
+                                                        sendAnswertoServer(thsession, answer);
+                                                        answerString.value = '';
+                                                        };
+
+                }
+        }
 
 
 
@@ -269,14 +285,14 @@ function sendAnswertoServer(thsession, answer){
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            console.log(answer);
+            //console.log(answer);
 
             //initializing properties from server
             let ansStatus = jsonObject.status;
 
             //gets boolean if answer is correct
             let isCorrect = jsonObject.correct;
-            console.log(isCorrect);
+            //console.log(isCorrect);
 
             //gets boolean if session has been completed
             let isComplete = jsonObject.completed;
@@ -361,8 +377,8 @@ function showPosition(position, thsession) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
-    console.log(latitude);
-    console.log(longitude);
+    //console.log(latitude);
+    //console.log(longitude);
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
@@ -387,3 +403,36 @@ function showPosition(position, thsession) {
 
         });
     }
+
+//function gets leaderboard
+function getLeaderboard(thsession) {
+    let limit = 10;
+
+    //example link
+    //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
+    fetch("https://codecyprus.org/th/api/leaderboard?session="+ thsession +"&sorted&limit=" + limit +"")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            ////ul element that shows teams score
+            let lbScores = document.getElementById("lbScores");
+            //shows ul element
+            lbScores.style.display = "block";
+
+            //gets scores
+            let leaderboard = jsonObject.leaderboard;
+
+            //creating list items and adds scores to ul
+            for (let i=0; i < leaderboard.length; i++) {
+
+                let listItem = document.createElement("li");
+                let teamName = leaderboard[i].player;
+                let teamScore = leaderboard[i].score;
+
+                //listItem.innerHTML ="<div class='container2'>" + "<h4>" +treasureHuntName+ "</h4>"+ "<p>" +treasureHuntDesc+ "</p>" + "<a href='https://codecyprus.org/th/api/start?player="+ playersName +"&app=team3TreasureHunt&treasure-hunt-id="+treasureHuntID+"'>Start</a>" + "</div><br>";
+                listItem.innerHTML = "<h4>" + teamName + ": " + teamScore +"</h4>";
+
+                lbScores.appendChild(listItem);
+            }
+        });
+}
