@@ -376,7 +376,7 @@ function showPosition(position, thsession) {
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-    fetch("https://codecyprus.org/th/api/location?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude +"")
+    fetch("https://codecyprus.org/th/api/location?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
