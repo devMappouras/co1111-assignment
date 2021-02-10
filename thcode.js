@@ -365,7 +365,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position)
         {
-            showPosition(position.coords.latitude, position.coords.longitude, thsession);
+            showPosition(position.coords.latitude, position.coords.longitude);
 
         });
 
