@@ -168,7 +168,7 @@ function getQuestion(thsession) {
 
                 //checks if question can be skipped
                 if (isSkip===true){
-                    skipQuestion();
+                    skipQuestion(thsession);
                 }
 
                 //if answer requires location then get location every 30seconds
@@ -316,7 +316,7 @@ function sendAnswertoServer(thsession, answer){
         });
 }
 
-function skipQuestion() {
+function skipQuestion(thsession) {
 
     //initializing button element
     let skipButton = document.getElementById("skipButton");
@@ -348,7 +348,7 @@ function skipQuestion() {
             if (skipStatus==="OK") {
                 messageElement.innerText = message;
                 messageElement.style.display = "block";
-                getQuestion(accessCookie("sessionID"));
+                getQuestion(thsession);
             }
 
         });
