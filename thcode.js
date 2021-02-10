@@ -168,7 +168,7 @@ function getQuestion(thsession) {
 
                 //checks if question can be skipped
                 if (isSkip===true){
-                    skipQuestion();
+                    skipQuestion(thsession);
                 }
 
                 //if answer requires location then get location every 30seconds
