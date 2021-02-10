@@ -151,9 +151,10 @@ function getQuestion(thsession) {
 
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation(thsession);
-                    setInterval(getLocation(), 30000);
                 }
+
+                getLocation(thsession);
+                setInterval(getLocation(thsession, latitude, longtitude), 30000);
 
                 //checks what type each question is and acts accordingly
                 if (questionType==="BOOLEAN") {
@@ -371,22 +372,16 @@ function showPosition(latitude, longitude, thsession) {
             console.log(locStatus);
 
             //gets message from server
-            //let message = jsonObject.message;
+            let message = jsonObject.message;
             console.log(jsonObject.message);
-
+            console.log(jsonObject.errorMessages);
 
             let locMessage = document.getElementById("locMessage");
 
-
-
-            locMessage.innerText = message;
-            locMessage.style.display = "block";
-
             if (locStatus==="OK") {
-
+                locMessage.innerText = message;
+                locMessage.style.display = "block";
             }
-
-            setInterval(getLocation(thsession), 30000);
         });
     }
 
