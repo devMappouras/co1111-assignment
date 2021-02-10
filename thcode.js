@@ -79,7 +79,6 @@ function getStartData() {
             if(thstatus==="OK") {
                 //gets questions from server and shows them to the user
                 getQuestion(thsession);
-                //setInterval(getLocation(thsession), 30000);
             } else {
                 document.write(jsonObject.errorMessages);
             }
@@ -178,7 +177,7 @@ function getQuestion(thsession) {
 
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
-                    getLocation(thsession);
+                    getLocation();
                 }
 
                 //checks what type each question is and acts accordingly
@@ -366,7 +365,6 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(function(position)
         {
             showPosition(position.coords.latitude, position.coords.longitude);
-
         });
 
     }
