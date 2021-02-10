@@ -335,6 +335,8 @@ function skipQuestion(thsession) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
+            thsession = accessCookie("sessionID");
+
             //initializing properties from server
             let skipStatus = jsonObject.status;
 
