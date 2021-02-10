@@ -28,6 +28,29 @@ function getTreasureHunts() {
         });
 }
 
+function createCookie(cookieName, cookieValue, expireDays) {
+    let date = new Date();
+    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+
+function accessCookie(cookieName) {
+
+    var name = cookieName + "=";
+    var allCookieArray = document.cookie.split(';');
+
+    for(var i=0; i<allCookieArray.length; i++) {
+
+        var temp = allCookieArray[i].trim();
+        if (temp.indexOf(name)===0) {
+            return temp.substring(name.length, temp.length);
+        }
+    }
+    return "";
+}
+
 //function that starts the th game
 function getStartData() {
 
@@ -47,6 +70,10 @@ function getStartData() {
 
             let thstatus = jsonObject.status;
             let thsession = jsonObject.session;
+
+            createCookie("sessionID", thsession, 1);
+            console.log(document.cookie);
+
             let totalQuestions = jsonObject.numOfQuestions;
 
             if(thstatus==="OK") {
@@ -146,15 +173,13 @@ function getQuestion(thsession) {
 
                 //checks if question can be skipped
                 if (isSkip===true){
-                    skipQuestion(thsession);
+                    skipQuestion();
                 }
 
                 //if answer requires location then get location every 30seconds
                 if (isLocation===true) {
                     getLocation(thsession);
                 }
-
-                setInterval(getLocation(thsession), 30000);
 
                 //checks what type each question is and acts accordingly
                 if (questionType==="BOOLEAN") {
@@ -336,7 +361,7 @@ function skipQuestion(thsession) {
 }
 
 //function gets player location
-function getLocation(thsession) {
+function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position)
         {
@@ -351,7 +376,7 @@ function getLocation(thsession) {
 }
 
 //function sends player's location to server
-function showPosition(latitude, longitude, thsession) {
+function showPosition(latitude, longitude) {
 
     //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 
@@ -363,7 +388,7 @@ function showPosition(latitude, longitude, thsession) {
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-    fetch("https://codecyprus.org/th/api/location?session="+ thsession +"&latitude=" + latitude + "&longitude=" + longitude)
+    fetch("https://codecyprus.org/th/api/location?session="+ accessCookie(sessionID) +"&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
