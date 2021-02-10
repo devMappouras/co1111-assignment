@@ -168,7 +168,7 @@ function getQuestion(thsession) {
 
                 //checks if question can be skipped
                 if (isSkip===true){
-                    skipQuestion(thsession);
+                    skipQuestion();
                 }
 
                 //if answer requires location then get location every 30seconds
@@ -316,7 +316,7 @@ function sendAnswertoServer(thsession, answer){
         });
 }
 
-function skipQuestion(thsession) {
+function skipQuestion() {
 
     //initializing button element
     let skipButton = document.getElementById("skipButton");
@@ -331,7 +331,7 @@ function skipQuestion(thsession) {
     {
         //example link
         //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/skip?session="+ thsession)
+        fetch("https://codecyprus.org/th/api/skip?session="+ accessCookie("sessionID"))
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
