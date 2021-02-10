@@ -68,7 +68,7 @@ function getStartData() {
             let thsession = jsonObject.session;
 
             createCookie("sessionID", thsession, 1);
-            console.log(document.cookie);
+            console.log("sessionID: " + document.cookie);
 
             let totalQuestions = jsonObject.numOfQuestions;
 
@@ -331,7 +331,7 @@ function skipQuestion(thsession) {
     {
         //example link
         //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/skip?session="+ thsession +"")
+        fetch("https://codecyprus.org/th/api/skip?session="+ thsession)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
@@ -379,6 +379,7 @@ function showPosition(latitude, longitude) {
 
     console.log(latitude);
     console.log(longitude);
+    console.log(accessCookie("sessionID"));
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
