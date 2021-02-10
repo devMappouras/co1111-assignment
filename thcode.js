@@ -68,7 +68,6 @@ function getStartData() {
             let thsession = jsonObject.session;
 
             createCookie("sessionID", thsession, 1);
-            console.log("sessionID: " + document.cookie);
 
             let totalQuestions = jsonObject.numOfQuestions;
 
@@ -331,11 +330,9 @@ function skipQuestion(thsession) {
     {
         //example link
         //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/skip?session="+ accessCookie("sessionID"))
+        fetch("https://codecyprus.org/th/api/skip?session="+ thsession)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
-
-            thsession = accessCookie("sessionID");
 
             //initializing properties from server
             let skipStatus = jsonObject.status;
