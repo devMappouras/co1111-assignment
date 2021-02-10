@@ -28,25 +28,21 @@ function getTreasureHunts() {
         });
 }
 
-function createCookie(cookieName, cookieValue, expireDays) {
-    let date = new Date();
-    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + date.toUTCString();
-    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+function createCookie(cookieName,cookieValue,daysToExpire)
+{
+    var date = new Date();
+    date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
+    document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
 }
-
-
-function accessCookie(cookieName) {
-
+function accessCookie(cookieName)
+{
     var name = cookieName + "=";
     var allCookieArray = document.cookie.split(';');
-
-    for(var i=0; i<allCookieArray.length; i++) {
-
+    for(var i=0; i<allCookieArray.length; i++)
+    {
         var temp = allCookieArray[i].trim();
-        if (temp.indexOf(name)===0) {
-            return temp.substring(name.length, temp.length);
-        }
+        if (temp.indexOf(name)===0)
+            return temp.substring(name.length,temp.length);
     }
     return "";
 }
@@ -386,7 +382,7 @@ function showPosition(latitude, longitude) {
 
     //example link
     //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-    fetch("https://codecyprus.org/th/api/location?session="+ accessCookie(sessionID) +"&latitude=" + latitude + "&longitude=" + longitude)
+    fetch("https://codecyprus.org/th/api/location?session="+ accessCookie("sessionID") +"&latitude=" + latitude + "&longitude=" + longitude)
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
