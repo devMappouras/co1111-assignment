@@ -416,9 +416,10 @@ function getLeaderboard(thsession) {
 
             //ul element that shows teams score
             let lbScores = document.getElementById("lbScores");
-
             //gets a element
             let toHome = document.getElementById("toHome");
+
+            let tableContent = "";
 
             //shows ul and a element
             lbScores.style.display = "block";
@@ -430,14 +431,17 @@ function getLeaderboard(thsession) {
             //creating list items and adds scores to ul
             for (let i=0; i < leaderboard.length; i++) {
 
-                let listItem = document.createElement("li");
                 let teamName = leaderboard[i].player;
                 let teamScore = leaderboard[i].score;
+                //let teamTime = leaderboard[i].completionTime;
 
-                //listItem.innerHTML ="<div class='container2'>" + "<h4>" +treasureHuntName+ "</h4>"+ "<p>" +treasureHuntDesc+ "</p>" + "<a href='https://codecyprus.org/th/api/start?player="+ playersName +"&app=team3TreasureHunt&treasure-hunt-id="+treasureHuntID+"'>Start</a>" + "</div><br>";
-                listItem.innerHTML = "<h4>" + teamName + ": " + teamScore +"</h4>";
-
-                lbScores.appendChild(listItem);
+                tableContent += "<tr>" + "<td>" + teamName + "</td>" +
+                                         "<td>" + teamScore + "</td>" +
+                                         //"<td>" + teamTime + "</td>" +
+                                         "</tr>";
             }
+
+            lbScores.innerHTML += tableContent;
+
         });
 }
