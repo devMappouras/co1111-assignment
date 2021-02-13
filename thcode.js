@@ -392,9 +392,9 @@ function checkCookie() {
         // let latitude = position.coords.latitude;
         // let longitude = position.coords.longitude;
 
-        console.log(latitude);
-        console.log(longitude);
-        console.log(accessCookie("sessionID"));
+        // console.log(latitude);
+        // console.log(longitude);
+        // console.log(accessCookie("sessionID"));
 
         //example link
         //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
@@ -404,12 +404,12 @@ function checkCookie() {
 
                 //initializing properties from server
                 let locStatus = jsonObject.status;
-                console.log(locStatus);
+                //console.log(locStatus);
 
                 //gets message from server
                 let message = jsonObject.message;
-                console.log(jsonObject.message);
-                console.log(jsonObject.errorMessages);
+                //console.log(jsonObject.message);
+                //console.log(jsonObject.errorMessages);
 
                 let locMessage = document.getElementById("locMessage");
 
@@ -499,36 +499,3 @@ var opts = {
     scanPeriod: 1
 
 };
-
-function qrCodeReader() {
-
-    /* QR Code reader functionality */
-    var scanner = new Instascan.Scanner(opts);
-
-    Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-            scanner.start(cameras[0]);
-        } else {
-            console.error('No cameras found.');
-            alert("No cameras found.");
-        }
-    }).catch(function (e) {
-        console.error(e);
-    });
-
-    scanner.addListener('scan', function (content) {
-        console.log(content);
-        document.getElementById("content").innerHTML = content;
-    });
-
-    /* Functionality to show/hide the qr code reader */
-
-// Get the button, and when the user clicks on it, execute myFunction
-    document.getElementById("qrBtn").onclick = function() {showHide()};
-
-    /* myFunction toggles between adding and removing the show class,
-    which is used to hide and show the dropdown content */
-    function showHide() {
-        document.getElementById("qrContent").classList.toggle("show");
-    }
-}
