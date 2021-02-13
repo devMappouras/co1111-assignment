@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <!-- main js file for contact with API -->
         <script type="text/JavaScript" src="thcode.js"></script>
+        <!-- qrcode js -->
+        <script type="text/javascript" src="qrCodejs/instascan.min.js"></script>
         <link rel="icon" href="images/parleyicon.png">
         <title>Treasure Hunt</title>
     </head>
@@ -46,12 +49,18 @@
                 </tr>
             </table>
 
-
-
-
         </div>
 
         <button class="questionButton" id="skipButton">SKIP</button>
+
+        <div class="qrDropdown">
+            <button id="qrBtn" class="qrBtn">Dropdown</button>
+            <div id="qrContent" class="div-content">
+                <video id="preview"></video>
+
+                <div style="margin: 0.5em; padding: 0.5em; color: black; text-align: center;" id="content"></div>
+            </div>
+        </div>
 
         <p class="questionButton" id="message"></p>
         <br>
