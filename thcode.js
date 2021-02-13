@@ -500,32 +500,35 @@ var opts = {
 
 };
 
-/* QR Code reader functionality */
-var scanner = new Instascan.Scanner(opts);
+function qrCodeReader() {
 
-Instascan.Camera.getCameras().then(function (cameras) {
-    if (cameras.length > 0) {
-        scanner.start(cameras[0]);
-    } else {
-        console.error('No cameras found.');
-        alert("No cameras found.");
-    }
-}).catch(function (e) {
-    console.error(e);
-});
+    /* QR Code reader functionality */
+    var scanner = new Instascan.Scanner(opts);
 
-scanner.addListener('scan', function (content) {
-    console.log(content);
-    document.getElementById("content").innerHTML = content;
-});
+    Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+            scanner.start(cameras[0]);
+        } else {
+            console.error('No cameras found.');
+            alert("No cameras found.");
+        }
+    }).catch(function (e) {
+        console.error(e);
+    });
 
-/* Functionality to show/hide the qr code reader */
+    scanner.addListener('scan', function (content) {
+        console.log(content);
+        document.getElementById("content").innerHTML = content;
+    });
+
+    /* Functionality to show/hide the qr code reader */
 
 // Get the button, and when the user clicks on it, execute myFunction
-document.getElementById("qrBtn").onclick = function() {showHide()};
+    document.getElementById("qrBtn").onclick = function() {showHide()};
 
-/* myFunction toggles between adding and removing the show class,
-which is used to hide and show the dropdown content */
-function showHide() {
-    document.getElementById("qrContent").classList.toggle("show");
+    /* myFunction toggles between adding and removing the show class,
+    which is used to hide and show the dropdown content */
+    function showHide() {
+        document.getElementById("qrContent").classList.toggle("show");
+    }
 }
