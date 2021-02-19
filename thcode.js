@@ -110,9 +110,14 @@ function checkCookie() {
 
                 //hides all answer elements
                 questionButton = document.getElementsByClassName("questionButton");
+                answerButton = document.getElementsByClassName("answerButton");
 
                 for (i = 0; i < questionButton.length; i++) {
                     questionButton[i].style.display = "none";
+                }
+
+                for (i = 0; i < answerButton.length; i++) {
+                    answerButton[i].style.display = "none";
                 }
 
                 //initializing properties from server
