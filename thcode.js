@@ -175,7 +175,7 @@ function checkCookie() {
                 let buttonD = document.getElementById("buttonD");
 
                 //qr show/hide button
-                qrDropdown = document.getElementsByClassName("qrDropdown");
+                let qrDropdown = document.getElementsByClassName("qrDropdown");
 
                 //exports question to player
                 question.innerHTML = questionText;
