@@ -6,7 +6,6 @@
 
 .header {
 	background-color: #483D8B;
-
 }
 .header h1 {
 	font-family: "Montserrat", sans-serif;
@@ -17,15 +16,11 @@
 }
 .header img {
 	width: 100%
-
-
 }
 
 ul { /* styling for the menu */
 	list-style-type: none;
-
-	margin-left: 20%;
-	margin-right: 20%;
+	margin: 0;
 	padding: 0;
 	background-color: oldlace;
 }
@@ -159,48 +154,30 @@ footer {
 	padding: 10px;
 }
 
-/* design for question.html */
+/*** design for question.html ***/
 
-#question{
-	background-color: aliceblue;
-	margin-top: 0.5rem;
-	font-size: 22px;
-}
-
-.questionContainer{
-	background-color: aliceblue;
-	margin-bottom: 0.5rem;
-}
-
-.questionButton  {
-	background-color: coral;
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: none; /* hides inputs and submit buttons */
-	font-size: 20px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-.questionButton:hover{
-	background-color: white;
-	border: 2px solid coral;
-	color: coral;
-
-}
-.answerButton {
-	background-color: azure;
-	border-color: #483D8B;
-	color: black;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
+/* hides inputs and submit buttons in question.html */
+.questionButton {
 	display: none;
-	font-size: 20px;
-	margin: 4px 2px;
-
-
 }
 
+/* design to chow/hide qr code  */
+.qrBtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 0.5em;
+	font-size: 0.9em;
+	border: none;
+	cursor: pointer;
+	display: inline;
+}
+
+.div-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.show {display:block;}
