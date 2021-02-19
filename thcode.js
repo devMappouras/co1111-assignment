@@ -175,7 +175,7 @@ function checkCookie() {
                 let buttonD = document.getElementById("buttonD");
 
                 //qr show/hide button
-                let qrDropdown = document.getElementById("qrDropdown");
+                let qrBtn = document.getElementById("qrBtn");
 
                 //exports question to player
                 question.innerHTML = questionText;
@@ -295,7 +295,7 @@ function checkCookie() {
                 }
                 //when treasure hunt ends, brings player to leaderboard
                 else if (isComplete) {
-                    qrDropdown.style.display = "none";
+                    qrBtn.style.display = "none";
                     getLeaderboard(thsession);
                 }
             });
