@@ -155,6 +155,49 @@ footer {
 }
 
 /*** design for question.html ***/
+#question{
+	color: black;
+	background-color: aliceblue;
+	margin-top: 0.5rem;
+	font-size: 22px;
+}
+
+.questionContainer{
+	background-color: aliceblue;
+	margin-bottom: 0.5rem;
+}
+
+.questionButton  {
+	background-color: coral;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: none; /* hides inputs and submit buttons */
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.questionButton:hover{
+	background-color: white;
+	border: 2px solid coral;
+	color: coral;
+
+}
+.answerButton {
+	background-color: azure;
+	border-color: #483D8B;
+	color: black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: none;
+	font-size: 20px;
+	margin: 4px 2px;
+
+
+}
 
 /* hides inputs and submit buttons in question.html */
 .questionButton {
