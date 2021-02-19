@@ -295,7 +295,7 @@ function checkCookie() {
                 }
                 //when treasure hunt ends, brings player to leaderboard
                 else if (isComplete) {
-                    for (i = 0; i < questionButton.length; i++) {
+                    for (i = 0; i < qrDropdown.length; i++) {
                         qrDropdown[i].style.display = "none";
                     }
                     getLeaderboard(thsession);
