@@ -166,6 +166,7 @@ footer {
 .questionContainer{
 	background-color: aliceblue;
 	margin-bottom: 0.5rem;
+
 }
 
 .questionButton  {
@@ -231,11 +232,24 @@ footer {
 }
 
 .div-content {
+
+	margin:auto;
+	border: 1px solid black;
 	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
+	position: relative;
+	background-color: aliceblue;
+	width:150px;
+	height: 150px;
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+video{
+	height: 100%;
+	position: absolute; /*positions the video relative to parent element (div-content)*/
+	top:0; /*this ensures that the position of the video is at the very top*/
+	left:-50%; /*this sets the camera/video frame position to be 50% to the left (centers the camera)*/
+
 }
 .show {display:block;}
