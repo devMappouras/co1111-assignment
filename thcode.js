@@ -110,9 +110,14 @@ function checkCookie() {
 
                 //hides all answer elements
                 questionButton = document.getElementsByClassName("questionButton");
+                answerButton = document.getElementsByClassName("answerButton");
 
                 for (i = 0; i < questionButton.length; i++) {
                     questionButton[i].style.display = "none";
+                }
+
+                for (i = 0; i < answerButton.length; i++) {
+                    answerButton[i].style.display = "none";
                 }
 
                 //initializing properties from server
@@ -168,6 +173,9 @@ function checkCookie() {
                 let buttonB = document.getElementById("buttonB");
                 let buttonC = document.getElementById("buttonC");
                 let buttonD = document.getElementById("buttonD");
+
+                //qr show/hide button
+                let qrDropdown = document.getElementsByClassName("qrDropdown");
 
                 //exports question to player
                 question.innerHTML = questionText;
@@ -287,6 +295,9 @@ function checkCookie() {
                 }
                 //when treasure hunt ends, brings player to leaderboard
                 else if (isComplete) {
+                    for (i = 0; i < qrDropdown.length; i++) {
+                        qrDropdown[i].style.display = "none";
+                    }
                     getLeaderboard(thsession);
                 }
             });

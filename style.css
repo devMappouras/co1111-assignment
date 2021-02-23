@@ -205,6 +205,20 @@ footer {
 	display: none;
 }
 
+#qrBtn {
+	display: block;
+	margin: auto;
+	align: center;
+	padding: 12px;
+}
+
+#skipButton {
+	display: block;
+	margin: auto;
+	align: center;
+	padding: 15px;
+}
+
 /* design to chow/hide qr code  */
 .qrBtn {
 	background-color: #4CAF50;
