@@ -53,6 +53,7 @@
         <!-- qr code -->
         <div class="qrDropdown">
             <button id="qrBtn" class="qrBtn">Camera</button>
+            <button id="switch">Switch</button>
             <br>
             <div id="qrContent" class="div-content">
                 <video id="preview"></video>
@@ -115,10 +116,21 @@
             Instascan.Camera.getCameras().then(function (cameras) {
                 if (cameras.length > 0) {
                     scanner.start(cameras[0]);
+                    // Get the button, and when the user clicks on it, execute myFunction
+                    document.getElementById("switch").onclick = function() {changeCamera()};
                 } else {
                     console.error('No cameras found.');
                     alert("No cameras found.");
                 }
+
+                let camIndex = 0;
+
+                function changeCamera() {
+                    camIndex++;
+                    let camera = cameras[camIndex];
+                    scanner.start(camera);
+                }
+
             }).catch(function (e) {
                 console.error(e);
             });
@@ -137,6 +149,16 @@
             which is used to hide and show the dropdown content */
             function showHide() {
                 document.getElementById("qrContent").classList.toggle("show");
+            }
+
+            function changeCamera() {
+                if (camIndex < camerasArray.length[-1]) {
+                    camIndex++;
+                } else {
+                    camIndex = 0;
+                }
+                let cam = camerasArray[camIndex];
+                scanner.start(cam);
             }
         </script>
 
