@@ -11,8 +11,8 @@
 .header h1 {
 	font-family: "Montserrat", sans-serif;
 	color: white;
-	font-size: 130%;
-	padding: 10px;
+	font-size: 150%;
+	padding: 20px;
 	
 }
 .header img {
@@ -34,6 +34,7 @@ li a {
 	display: block;
 	color: #483D8B;
 	font-family: "Montserrat", sans-serif;
+	font-size: 120%;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -61,15 +62,17 @@ a {
     color: #483D8B;
 	text-align: center;
 	font-family: "Montserrat", sans-serif;
+	font-size: 150%;
 }
 
 .startButton {
 	background-color: #483D8B;
 	color: white;
-	font-size: 1.2em;
+	font-size: 1.4em;
 	margin: auto;
 	display: block;
 	padding: 16px 32px;
+	width: 50%;
 }
 
 .startButton:hover {
@@ -82,23 +85,23 @@ a {
 .container1 {
 	border: solid 1px black;
 	background-color: oldlace;
-	padding: 10px;
-	margin: 10px;
+	padding: 15px;
+	margin: 25px;
 }
 .container1 img {
-	width: 30%;
+	width: 15%;
 }
 .container2 {
 	border: solid 1px black;
 	background-color: oldlace;
 	padding: 10px;
-	margin: 10px;
+	margin: 25px;
 }
 .container3 {
 	border: solid 1px black;
 	background-color: oldlace;
 	padding: 10px;
-	margin: 10px;
+	margin: 25px;
 }
 .container3 img {
 	width: 30%;
@@ -138,8 +141,9 @@ a {
 #socialMedia{
 	color: #483D8B;
 	font-family: "Montserrat", sans-serif;
-	font-size: 20px;
+	font-size: 130%;
 	margin-bottom: 2rem;
+	margin: 20px;
 }
 
 #email:link{
