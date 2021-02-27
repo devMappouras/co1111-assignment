@@ -204,10 +204,10 @@ function checkCookie() {
                     questionNoHTML.style.display = "inline-block";
 
                     //show camera button
-                    questionNoHTML.style.display = "inline-block";
+                    qrBtn.style.display = "inline-block";
 
                     //show camera switch button
-                    questionNoHTML.style.display = "inline-block";
+                    switchButton.style.display = "inline-block";
 
                     getScore();
 
