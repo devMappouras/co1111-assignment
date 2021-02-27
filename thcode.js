@@ -180,6 +180,11 @@ function checkCookie() {
                 //qr show/hide button
                 let qrDropdown = document.getElementsByClassName("qrDropdown");
 
+                //get element in html to show camera button
+                let qrBtn = document.getElementById("qrBtn");
+                //get element in html to show camera switch button
+                let switchButton = document.getElementById("switch");
+
                 //exports question to player
                 question.innerHTML = questionText;
 
@@ -195,7 +200,13 @@ function checkCookie() {
                     //show question text
                     question.style.display = "block";
 
-                    //show question text
+                    //show question number
+                    questionNoHTML.style.display = "inline-block";
+
+                    //show camera button
+                    questionNoHTML.style.display = "inline-block";
+
+                    //show camera switch button
                     questionNoHTML.style.display = "inline-block";
 
                     getScore();
