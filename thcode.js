@@ -154,6 +154,9 @@ function checkCookie() {
                 //get element in html to print question
                 let question = document.getElementById("question");
 
+                //get element in html to print question number
+                let questionNoHTML = document.getElementById("questionNo");
+
                 //functionality of HTML elements
                 //text elements
                 let submitString = document.getElementById("submitString");
@@ -179,11 +182,18 @@ function checkCookie() {
 
                 //exports question to player
                 question.innerHTML = questionText;
+
+                //exports question number to player
+                questionNoHTML.innerHTML = questionNo + "/" + totalQuestions;
+
                 //initialising the variable which sends the answer to server
                 let answer;
 
                 //checks if treasure hunt is not completed
                 if (isComplete === false) {
+
+                    //show question text
+                    question.style.display = "block";
 
                     //show question text
                     question.style.display = "block";
@@ -473,4 +483,35 @@ function checkCookie() {
             });
     }
 
+//function gets score of current player
+function getScore() {
+    let limit = 15;
+
+    //example link
+    //https://codecyprus.org/th/api/score?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+    fetch("https://codecyprus.org/th/api/score?session=" + accessCookie("sessionID"))
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            //gets scores
+            let scoreStatus = jsonObject.status;
+
+            //gets scores
+            let scoreAPI = jsonObject.score;
+
+            //gets a element
+            let score = document.getElementById("score");
+
+            if(scoreStatus ==="OK") {
+                score.innerHTML = scoreAPI;
+
+                //shows score to player
+                score.style.display = "block";
+            }else{
+
+            }
+
+
+        });
+}
 
