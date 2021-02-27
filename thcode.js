@@ -374,7 +374,7 @@ function checkCookie() {
         let skipButton = document.getElementById("skipButton");
 
         //makes skipButton visible
-        skipButton.style.display = "block";
+        skipButton.style.display = "inline-block";
 
         let messageElement = document.getElementById("message");
 
@@ -398,7 +398,7 @@ function checkCookie() {
                     //shows message according to status (OK/ERROR)
                     if (skipStatus === "OK") {
                         messageElement.innerText = message;
-                        messageElement.style.display = "inline-block";
+                        messageElement.style.display = "block";
                         getQuestion(thsession);
                     }
 
