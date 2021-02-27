@@ -184,7 +184,7 @@ function checkCookie() {
                 question.innerHTML = questionText;
 
                 //exports question number to player
-                questionNoHTML.innerHTML = "Question:" + questionNo + "/" + totalQuestions;
+                questionNoHTML.innerHTML = "Question: " + questionNo + "/" + totalQuestions;
 
                 //initialising the variable which sends the answer to server
                 let answer;
@@ -387,7 +387,7 @@ function checkCookie() {
                     //shows message according to status (OK/ERROR)
                     if (skipStatus === "OK") {
                         messageElement.innerText = message;
-                        messageElement.style.display = "block";
+                        messageElement.style.display = "inline-block";
                         getQuestion(thsession);
                     }
 
@@ -505,7 +505,7 @@ function getScore() {
             let score = document.getElementById("score");
 
             if(scoreStatus ==="OK") {
-                score.innerHTML = scoreAPI;
+                score.innerHTML = "Score: " + scoreAPI;
 
                 //shows score to player
                 score.style.display = "inline-block";
