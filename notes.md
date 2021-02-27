@@ -13,4 +13,12 @@ __________
 
 09/02/21: We presented the improvements on treasure hunt functionality 
           and what we have to accomplish
+          
+27/02/21: We disgussed about Feedback #2 and based on that we decided that: 
+          1) Christos will modify cookies so that when a user exits the game, the session's current question is saved
+             and can be recovered when the user enters the game 
+          2) Namu will add a loader element to indicate that the question is being loaded at the start of the game
+          3) Marina will work on adding an alert dialog when a name is already in use and 
+             will add an error message when future games are not available. 
+          
 
