@@ -184,7 +184,7 @@ function checkCookie() {
                 question.innerHTML = questionText;
 
                 //exports question number to player
-                questionNoHTML.innerHTML = questionNo + "/" + totalQuestions;
+                questionNoHTML.innerHTML = "Question:" + questionNo + "/" + totalQuestions;
 
                 //initialising the variable which sends the answer to server
                 let answer;
@@ -196,7 +196,9 @@ function checkCookie() {
                     question.style.display = "block";
 
                     //show question text
-                    question.style.display = "block";
+                    questionNoHTML.style.display = "inline-block";
+
+                    getScore();
 
                     //checks if question can be skipped
                     if (isSkip === true) {
@@ -506,7 +508,7 @@ function getScore() {
                 score.innerHTML = scoreAPI;
 
                 //shows score to player
-                score.style.display = "block";
+                score.style.display = "inline-block";
             }else{
 
             }
