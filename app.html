@@ -6,14 +6,39 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="thcode.js"></script>
         <link rel="icon" href="images/parleyicon.png">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <title>Parley</title>
     </head>
 
-    <body>
+   <!-- <body>
 
         <div class="header">
             <h2>Choose a Treasure Hunt</h2>
-        </div>
+        </div> -->
+		
+		
+		<!-- this is the code for the loader. It will display the loader until the contents
+			of the page have loaded -->
+		<body onload="myFunction()" style="margin:0;">
+
+		<div id="loader"></div>
+
+		<div style="display:none;" id="myDiv" class="animate-bottom">
+		  <h2>Select treasure hunt: </h2>
+		</div>
+
+		<script>
+		var myVar;
+
+		function myFunction() {
+		  myVar = setTimeout(showPage, 3000);
+		}
+
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		  document.getElementById("myDiv").style.display = "block";
+		}
+		</script>
 
 
         <br>
