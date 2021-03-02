@@ -94,9 +94,9 @@ function checkCookie(playersName) {
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
                 } else {
-                   alert(jsonObject.errorMessages);
                     // Simulate an HTTP redirect:
                     window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
+                    alert(jsonObject.errorMessages);
                    //document.write(jsonObject.errorMessages);
                 }
 
