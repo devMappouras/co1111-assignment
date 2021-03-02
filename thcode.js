@@ -95,6 +95,8 @@ function checkCookie(playersName) {
                     getQuestion(thsession);
                 } else {
                    alert(jsonObject.errorMessages);
+                    // Simulate an HTTP redirect:
+                    window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
                    //document.write(jsonObject.errorMessages);
                 }
 
