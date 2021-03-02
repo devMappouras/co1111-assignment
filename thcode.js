@@ -455,8 +455,8 @@ function checkCookie(playersName) {
                 let locMessage = document.getElementById("locMessage");
 
                 if (locStatus === "OK") {
-                    locMessage.innerText = message;
-                    locMessage.style.display = "block";
+                    //locMessage.innerText = message;
+                    //locMessage.style.display = "block";
                 }
             });
     }
