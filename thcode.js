@@ -89,9 +89,17 @@ function checkCookie() {
                 if (thstatus === "OK") {
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
-                } else {
+
+
+                }
+                /*else if(thstatus==="ERROR"){
+                    alert(jsonObject.errorMessages);
+
+                }*/
+                   else {
                     document.write(jsonObject.errorMessages);
                 }
+
 
                 //console.log(thsession);
                 //console.log(totalQuestions);
