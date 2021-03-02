@@ -52,15 +52,16 @@ function accessCookie(cookieName)
 }
 
 
+
 /*
 //checks if session has already started and did not finish
-function checkCookie() {
-    var sesid = accessCookie("testCookie");
-    if (sesid !== "") {
+function checkCookie(playersName) {
+    var comeback = accessCookie("player");
+    if (comeback ===  playersName){
         alert("Welcome Back!");
+        getQuestion(thsession);
     }
-}
-*/
+}*/
 
 //function that starts the th game
     function getStartData() {
@@ -69,6 +70,8 @@ function checkCookie() {
         const urlParams = new URLSearchParams(queryString);
         const playersName = urlParams.get('player')
         let treasureHuntID = urlParams.get('treasure-hunt-id')
+
+        //checkCookie();
 
         //console.log(playersName);
         //console.log(treasureHuntID);
@@ -87,10 +90,12 @@ function checkCookie() {
                 let totalQuestions = jsonObject.numOfQuestions;
 
                 if (thstatus === "OK") {
+                    createCookie("username", playersName, 1);
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
                 } else {
-                    document.write(jsonObject.errorMessages);
+                   alert(jsonObject.errorMessages);
+                   //document.write(jsonObject.errorMessages);
                 }
 
                 //console.log(thsession);
