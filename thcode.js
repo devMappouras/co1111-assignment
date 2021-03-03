@@ -52,16 +52,15 @@ function accessCookie(cookieName)
 }
 
 
-
 /*
 //checks if session has already started and did not finish
-function checkCookie(playersName) {
-    var comeback = accessCookie("player");
-    if (comeback ===  playersName){
+function checkCookie() {
+    var sesid = accessCookie("testCookie");
+    if (sesid !== "") {
         alert("Welcome Back!");
-        getQuestion(thsession);
     }
-}*/
+}
+*/
 
 //function that starts the th game
     function getStartData() {
@@ -70,8 +69,6 @@ function checkCookie(playersName) {
         const urlParams = new URLSearchParams(queryString);
         const playersName = urlParams.get('player')
         let treasureHuntID = urlParams.get('treasure-hunt-id')
-
-        //checkCookie();
 
         //console.log(playersName);
         //console.log(treasureHuntID);
@@ -90,14 +87,10 @@ function checkCookie(playersName) {
                 let totalQuestions = jsonObject.numOfQuestions;
 
                 if (thstatus === "OK") {
-                    createCookie("username", playersName, 1);
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
                 } else {
-                    // Simulate an HTTP redirect:
-                    window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
-                    alert(jsonObject.errorMessages);
-                   //document.write(jsonObject.errorMessages);
+                    document.write(jsonObject.errorMessages);
                 }
 
                 //console.log(thsession);
@@ -455,8 +448,8 @@ function checkCookie(playersName) {
                 let locMessage = document.getElementById("locMessage");
 
                 if (locStatus === "OK") {
-                    //locMessage.innerText = message;
-                    //locMessage.style.display = "block";
+                    locMessage.innerText = message;
+                    locMessage.style.display = "block";
                 }
             });
     }
