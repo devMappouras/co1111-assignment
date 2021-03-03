@@ -20,5 +20,17 @@ __________
           2) Namu will add a loader element to indicate that the question is being loaded at the start of the game
           3) Marina will work on adding an alert dialog when a name is already in use and 
              will add an error message when future games are not available. 
+             
+03/03/21: In general, we disgussed about further improvements in our project: 
+          1) Christos will continue working on cookie function so that the session progress is saved and 
+             will also work on the location function so it updates the location 
+             before answering a question for location-sensitive question
+          2) Namu will add an instructions section, that includes info about how to play the game, in the index.html (homepage). 
+             Will add the loader element to questions html page and will make css changes in app html
+            (remove some boxes and borders around treasure hunt list).
+          4) Marina will fix some css issues regarding the qr code (camera frame) and css changes on scoreboard,
+             question index and current score elements in question html page (make them not clickable).
+             Will also add description/role on index page
+             
           
 
