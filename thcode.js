@@ -488,9 +488,14 @@ function checkCookie() {
                     let teamScore = leaderboard[i].score;
                     let teamTime = leaderboard[i].completionTime;
 
+                    let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+                        second: '2-digit' };
+                    let date = new Date(teamTime);
+                    let formattedDate = date.toLocaleDateString("en-UK", options);
+
                     tableContent += "<tr>" + "<td>" + teamName + "</td>" +
                         "<td>" + teamScore + "</td>" +
-                        "<td>" + teamTime + "</td>" +
+                        "<td>" + formattedDate + "</td>" +
                         "</tr>";
                 }
 
