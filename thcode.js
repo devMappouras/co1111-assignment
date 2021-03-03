@@ -475,10 +475,13 @@ function checkCookie(playersName) {
                 let lbScores = document.getElementById("lbScores");
                 //gets a element
                 let toHome = document.getElementById("toHome");
+                //gets scoreboard Title
+                let scoreboardTitle = document.getElementById("scoreboardTitle");
 
                 let tableContent = "";
 
-                //shows ul and a element
+                //shows leaderboard elements
+                scoreboardTitle.style.display = "block";
                 lbScores.style.display = "block";
                 toHome.style.display = "block";
 
@@ -490,11 +493,11 @@ function checkCookie(playersName) {
 
                     let teamName = leaderboard[i].player;
                     let teamScore = leaderboard[i].score;
-                    //let teamTime = leaderboard[i].completionTime;
+                    let teamTime = leaderboard[i].completionTime;
 
                     tableContent += "<tr>" + "<td>" + teamName + "</td>" +
                         "<td>" + teamScore + "</td>" +
-                        //"<td>" + teamTime + "</td>" +
+                        "<td>" + teamTime + "</td>" +
                         "</tr>";
                 }
 
