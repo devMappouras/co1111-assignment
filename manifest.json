@@ -5,10 +5,10 @@
     {
       "src": "images/parleyicon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "447x450"
     }
   ],
-  "start_url": "/",
+  "start_url": "/co1111-assignment",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/",
@@ -18,7 +18,7 @@
       "name": "Start Treasure Hunt",
       "short_name": "Start Th",
       "description": "Start Treasure Hunt Shortcut",
-      "url": "/app.html",
+      "url": "co1111-assignment/app.html",
       "icons": [{ "src": "images/parleyicon.png", "sizes": "192x192" }]
     }
   ],
