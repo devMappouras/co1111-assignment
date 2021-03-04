@@ -20,7 +20,7 @@
       "short_name": "Start Th",
       "description": "Start Treasure Hunt Shortcut",
       "url": "co1111-assignment/app.html",
-      "icons": [{ "src": "images/parleyicon.png", "sizes": "192x192" }]
+      "icons": [{ "src": "images/parleyicon.png", "sizes": "447x447" }]
     }
   ],
   "description": "Parley is a treasure hunting game app",
