@@ -3,12 +3,12 @@
   "name": "Parley",
   "icons": [
     {
-      "src": "/images/parleyicon.png",
+      "src": "images/parleyicon.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
-  "start_url": "https://pelopedis.github.io/co1111-assignment/",
+  "start_url": "/",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/",
@@ -18,19 +18,19 @@
       "name": "Start Treasure Hunt",
       "short_name": "Start Th",
       "description": "Start Treasure Hunt Shortcut",
-      "url": "https://pelopedis.github.io/co1111-assignment/app.html",
-      "icons": [{ "src": "/images/parleyicon.png", "sizes": "192x192" }]
+      "url": "/app.html",
+      "icons": [{ "src": "images/parleyicon.png", "sizes": "192x192" }]
     }
   ],
   "description": "Parley is a treasure hunting game app",
   "screenshots": [
     {
-      "src": "/images/screenshot1.jpg",
+      "src": "images/screenshot1.jpg",
       "type": "image/png",
       "sizes": "540x720"
     },
     {
-      "src": "/images/screenshot2.jpg",
+      "src": "images/screenshot2.jpg",
       "type": "image/jpg",
       "sizes": "540x720"
     }
