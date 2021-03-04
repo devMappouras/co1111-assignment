@@ -5,7 +5,8 @@
     {
       "src": "images/parleyicon.png",
       "type": "image/png",
-      "sizes": "447x450"
+      "sizes": "447x447",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/co1111-assignment",
