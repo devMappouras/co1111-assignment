@@ -21,7 +21,8 @@
 
 ul { /* styling for the menu */
 	list-style-type: none;
-	margin: 0;
+	margin-right: 10%;
+	margin-left:10%;
 	padding: 0;
 	background-color: oldlace;
 }
@@ -112,27 +113,6 @@ a {
 	padding: 15px;
 	margin: 25px;
 }
-
-/*button {
-
-    color: white;
-    background-color: #89cff0 ;
-    border: none;
-
-    font-size: 1.2em;
-    text-align: center;
-    text-decoration: none;
-    align-content: center;
-    align-items: flex-end;
-    display: flex;
-
-    padding: 10px 24px;
-    margin: 4px 2px;
-
-    cursor: pointer;
-}*/
-	
-	
 
 .twitterFrame{
     margin: 5%;
