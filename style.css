@@ -229,6 +229,10 @@ footer {
 	background-color: #6F63BB;
 	position: relative;
 	height: 60px;
+	display: block;
+
+
+
 }
 
 #questionNo {
@@ -242,6 +246,7 @@ footer {
 	margin: 4px 2px;
 	float:left;
 
+
 }
 #score{
 
@@ -252,6 +257,7 @@ footer {
 	font-size: 20px;
 	margin: 4px 2px;
 	float: right;
+
 }
 
 .questionContainer{
@@ -365,9 +371,25 @@ video{
 
 }
 
+/*style for table */
+
 table{
 
-	border: 1px solid black;
 
+	margin: 0;
+	border: 1px solid black;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	/*overflow:hidden;*/
 }
+th, td {
+	font-size: medium;
+	text-align: left;
+	padding: 16px;
+	/*width: 20px;
+	overflow:hidden;*/
+}
+
+
 .show {display:block;}
