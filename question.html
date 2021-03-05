@@ -12,11 +12,15 @@
         <title>Treasure Hunt</title>
     </head>
 
-    <body onload="setInterval(getLocation, 30000);">
+    <body>
 
+        <!-- shows only when th finishes-->
+        <h1 class="questionButton" id="scoreboardTitle">ScoreBoard</h1>
 
+        <!-- treasure hunt questions loads here -->
         <p class="questionButton" id="question"></p>
 
+        <!-- shows question number and score -->
         <p class="questionButton" id="questionNo"></p>
         <p class="questionButton" id="score"></p>
 
@@ -45,7 +49,7 @@
                 <tr>
                     <th>Team</th>
                     <th>Score</th>
-                    <!--<th>Time</th>-->
+                    <th>Time</th>
                 </tr>
             </table>
 
@@ -70,7 +74,7 @@
         <br>
         <p class="questionButton" id="locMessage"></p>
 
-        <!-- a element (visible on leaderboard)-->
+        <!-- a element (visible only on leaderboard) -->
         <a class="questionButton" id="toHome" href="index.html">HOMEPAGE</a>
 
         <script>
