@@ -12,7 +12,7 @@
   "start_url": "/co1111-assignment",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/co1111-assignment",
   "theme_color": "#483D8B",
   "shortcuts": [
     {
