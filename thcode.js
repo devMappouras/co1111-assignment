@@ -31,10 +31,10 @@ function getTreasureHunts() {
 }
 
 //creates cookies
-function createCookie(cookieName,cookieValue,daysToExpire)
+function createCookie(cookieName,cookieValue,hoursToExpire)
 {
     var date = new Date();
-    date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
+    date.setTime(date.getTime()+(hoursToExpire*60*60*1000));
     document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
 }
 
@@ -85,11 +85,11 @@ function checkCookie(playersName) {
                 let thstatus = jsonObject.status;
                 let thsession = jsonObject.session;
 
-                createCookie("sessionID", thsession, 1);
-
                 let totalQuestions = jsonObject.numOfQuestions;
 
                 if (thstatus === "OK") {
+                    createCookie("sessionID", thsession, 1);
+                    createCookie("username", playersName, 1);
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
                 } else {
@@ -103,12 +103,14 @@ function checkCookie(playersName) {
             });
     }
 
+let sendAnswerBool = false;
+
 //function that calls the questions from server
     function getQuestion(thsession) {
 
         //example link
         //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/question?session=" + thsession + "")
+        fetch("https://codecyprus.org/th/api/question?session=" + thsession)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
@@ -198,6 +200,8 @@ function checkCookie(playersName) {
                 //initialising the variable which sends the answer to server
                 let answer;
 
+                sendAnswerBool = false;
+
                 //checks if treasure hunt is not completed
                 if (isComplete === false) {
 
@@ -220,11 +224,6 @@ function checkCookie(playersName) {
                         skipQuestion(thsession);
                     }
 
-                    //if answer requires location then get location every 30seconds
-                    if (isLocation === true) {
-                        getLocation();
-                    }
-
                     //checks what type each question is and acts accordingly
                     if (questionType === "BOOLEAN") {
 
@@ -235,12 +234,20 @@ function checkCookie(playersName) {
 
                         //get answer (using onclick in js)
                         boolT.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = true;
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         boolF.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = false;
                             sendAnswertoServer(thsession, answer);
                         };
@@ -253,6 +260,10 @@ function checkCookie(playersName) {
 
                         //get answer (using onclick in js)
                         submitNo.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = answerNo.value;
                             sendAnswertoServer(thsession, answer);
                             answerNo.value = '';
@@ -268,6 +279,10 @@ function checkCookie(playersName) {
 
                         //get answer (using onclick in js)
                         submitNo.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = answerNo.value;
                             sendAnswertoServer(thsession, answer);
                             answerNo.value = '';
@@ -282,24 +297,40 @@ function checkCookie(playersName) {
 
                         //get answer (using onclick in js)
                         buttonA.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = 'A';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonB.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = 'B';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonC.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = 'C';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonD.onclick = function () {
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                            }
                             answer = 'D';
                             sendAnswertoServer(thsession, answer);
                         };
@@ -313,11 +344,20 @@ function checkCookie(playersName) {
 
                         //get answer (using onclick in js)
                         submitString.onclick = function () {
-                            answer = answerString.value;
-                            sendAnswertoServer(thsession, answer);
-                            answerString.value = '';
+                            //if answer requires location then get location before sending answer
+                            if (isLocation === true) {
+                                getLocation();
+                                if (sendAnswerBool === true) {
+                                    answer = answerString.value;
+                                    sendAnswertoServer(thsession, answer);
+                                    answerString.value = '';
+                                }
+                            } else {
+                                answer = answerString.value;
+                                sendAnswertoServer(thsession, answer);
+                                answerString.value = '';
+                            }
                         };
-
                     }
                 }
                 //when treasure hunt ends, brings player to leaderboard
@@ -416,7 +456,6 @@ function checkCookie(playersName) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 showPosition(position.coords.latitude, position.coords.longitude);
             });
-
         } else {
             alert("Geolocation is not supported by your browser.");
         }
@@ -425,35 +464,16 @@ function checkCookie(playersName) {
 //function sends player's location to server
     function showPosition(latitude, longitude) {
 
-        //alert("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-
-        // let latitude = position.coords.latitude;
-        // let longitude = position.coords.longitude;
-
-        // console.log(latitude);
-        // console.log(longitude);
-        // console.log(accessCookie("sessionID"));
-
         //example link
         //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
         fetch("https://codecyprus.org/th/api/location?session=" + accessCookie("sessionID") + "&latitude=" + latitude + "&longitude=" + longitude)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
-                //initializing properties from server
                 let locStatus = jsonObject.status;
-                //console.log(locStatus);
-
-                //gets message from server
-                let message = jsonObject.message;
-                //console.log(jsonObject.message);
-                //console.log(jsonObject.errorMessages);
-
-                let locMessage = document.getElementById("locMessage");
 
                 if (locStatus === "OK") {
-                    locMessage.innerText = message;
-                    locMessage.style.display = "block";
+                    sendAnswerBool = true;
                 }
             });
     }
