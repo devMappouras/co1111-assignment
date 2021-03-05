@@ -58,7 +58,7 @@ function checkCookie(playersName) {
     var nameInTh = accessCookie("username");
     if (playersName === nameInTh) {
         //alert("Welcome Back!");
-        let link = accessCookie("sessionID");
+        let link = "question.html?player="+ playersName +"&treasure-hunt-id="+ accessCookie("sessionID");
         console.log(link);
         getQuestion(link);
         //window.location.replace(link);
