@@ -58,7 +58,7 @@ function checkCookie(playersName) {
     var nameInTh = accessCookie("username");
     if (playersName === nameInTh) {
         //alert("Welcome Back!");
-        let link = "question.html?player="+ playersName +"&treasure-hunt-id="+ accessCookie("sessionID");
+        let link = accessCookie("sessionID");
         console.log(link);
         getQuestion(link);
         //window.location.replace(link);
@@ -104,6 +104,8 @@ function checkCookie(playersName) {
     }
 
 let sendAnswerBool = false;
+let longitude = 0;
+let latitude = 0;
 
 //function that calls the questions from server
     function getQuestion(thsession) {
@@ -236,20 +238,14 @@ let sendAnswerBool = false;
 
                         //get answer (using onclick in js)
                         boolT.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = true;
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         boolF.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = false;
                             sendAnswertoServer(thsession, answer);
                         };
@@ -262,10 +258,7 @@ let sendAnswerBool = false;
 
                         //get answer (using onclick in js)
                         submitNo.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = answerNo.value;
                             sendAnswertoServer(thsession, answer);
                             answerNo.value = '';
@@ -281,10 +274,7 @@ let sendAnswerBool = false;
 
                         //get answer (using onclick in js)
                         submitNo.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = answerNo.value;
                             sendAnswertoServer(thsession, answer);
                             answerNo.value = '';
@@ -299,40 +289,28 @@ let sendAnswerBool = false;
 
                         //get answer (using onclick in js)
                         buttonA.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = 'A';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonB.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = 'B';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonC.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = 'C';
                             sendAnswertoServer(thsession, answer);
                         };
 
                         //get answer (using onclick in js)
                         buttonD.onclick = function () {
-                            //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                            }
+
                             answer = 'D';
                             sendAnswertoServer(thsession, answer);
                         };
@@ -347,18 +325,9 @@ let sendAnswerBool = false;
                         //get answer (using onclick in js)
                         submitString.onclick = function () {
                             //if answer requires location then get location before sending answer
-                            if (isLocation === true) {
-                                getLocation();
-                                if (sendAnswerBool === true) {
-                                    answer = answerString.value;
-                                    sendAnswertoServer(thsession, answer);
-                                    answerString.value = '';
-                                }
-                            } else {
-                                answer = answerString.value;
-                                sendAnswertoServer(thsession, answer);
-                                answerString.value = '';
-                            }
+                            answer = answerString.value;
+                            sendAnswertoServer(thsession, answer, isLocation);
+                            answerString.value = '';
                         };
                     }
                 }
@@ -372,46 +341,52 @@ let sendAnswerBool = false;
             });
     }
 
-    function sendAnswertoServer(thsession, answer) {
+    function sendAnswertoServer(thsession, answer, isLocation) {
+        if (isLocation === true) {
+            getLocation(answer);
+            console.log(latitude);
+            console.log(longitude);
 
-        //example link
-        //https://codecyprus.org/th/api/answer?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&answer=42
-        fetch("https://codecyprus.org/th/api/answer?session=" + thsession + "&answer=" + answer + "")
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
+            //example link
 
-                //console.log(answer);
+        } else {
+            fetch("https://codecyprus.org/th/api/answer?session=" + thsession + "&answer=" + answer + "")
+                .then(response => response.json()) //Parse JSON text to JavaScript object
+                .then(jsonObject => {
 
-                //initializing properties from server
-                let ansStatus = jsonObject.status;
+                    console.log("answerSubmitted");
 
-                //gets boolean if answer is correct
-                let isCorrect = jsonObject.correct;
-                //console.log(isCorrect);
+                    //initializing properties from server
+                    let ansStatus = jsonObject.status;
 
-                //gets boolean if session has been completed
-                let isComplete = jsonObject.completed;
+                    //gets boolean if answer is correct
+                    let isCorrect = jsonObject.correct;
+                    //console.log(isCorrect);
 
-                //gets message from server
-                let message = jsonObject.message;
+                    //gets boolean if session has been completed
+                    let isComplete = jsonObject.completed;
 
-                let messageElement = document.getElementById("message");
+                    //gets message from server
+                    let message = jsonObject.message;
 
-                //shows message according to status (OK/ERROR)
-                if (ansStatus === "OK") {
-                    messageElement.innerText = message;
-                    messageElement.style.display = "block";
-                    if (isCorrect === true) {
-                        getQuestion(thsession);
+                    let messageElement = document.getElementById("message");
+
+                    //shows message according to status (OK/ERROR)
+                    if (ansStatus === "OK") {
+                        messageElement.innerText = message;
+                        messageElement.style.display = "block";
+                        if (isCorrect === true) {
+                            getQuestion(thsession);
+                        }
+                    } else if (ansStatus === "ERROR") {
+                        let errorMessages = jsonObject.errorMessages;
+
+                        for (let i = 0; i < errorMessages.length; i++) {
+                            messageElement.innerText = errorMessages[i];
+                        }
                     }
-                } else if (ansStatus === "ERROR") {
-                    let errorMessages = jsonObject.errorMessages;
-
-                    for (let i = 0; i < errorMessages.length; i++) {
-                        messageElement.innerText = errorMessages[i];
-                    }
-                }
-            });
+                });
+        }
     }
 
     function skipQuestion(thsession) {
@@ -453,10 +428,10 @@ let sendAnswerBool = false;
     }
 
 //function gets player location
-    function getLocation() {
+    function getLocation(answer) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                showPosition(position.coords.latitude, position.coords.longitude);
+                showPosition(position.coords.latitude, position.coords.longitude, answer);
             });
         } else {
             alert("Geolocation is not supported by your browser.");
@@ -464,21 +439,58 @@ let sendAnswerBool = false;
     }
 
 //function sends player's location to server
-    function showPosition(latitude, longitude) {
+function showPosition(lat, long, answer) {
 
-        //example link
-        //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
-        fetch("https://codecyprus.org/th/api/location?session=" + accessCookie("sessionID") + "&latitude=" + latitude + "&longitude=" + longitude)
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
 
-                let locStatus = jsonObject.status;
+    //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
+    fetch("https://codecyprus.org/th/api/location?session=" + accessCookie("sessionID") + "&latitude=" + lat + "&longitude=" + long)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
 
-                if (locStatus === "OK") {
-                    sendAnswerBool = true;
-                }
-            });
-    }
+            let locStatus = jsonObject.status;
+
+            if (locStatus === "OK") {
+                fetch("https://codecyprus.org/th/api/answer?session=" +  accessCookie("sessionID") + "&answer=" + answer + "")
+                    .then(response => response.json()) //Parse JSON text to JavaScript object
+                    .then(jsonObject => {
+
+                        console.log("answerSubmitted");
+
+                        //initializing properties from server
+                        let ansStatus = jsonObject.status;
+
+                        //gets boolean if answer is correct
+                        let isCorrect = jsonObject.correct;
+                        //console.log(isCorrect);
+
+                        //gets boolean if session has been completed
+                        let isComplete = jsonObject.completed;
+
+                        //gets message from server
+                        let message = jsonObject.message;
+
+                        let messageElement = document.getElementById("message");
+
+                        //shows message according to status (OK/ERROR)
+                        if (ansStatus === "OK") {
+                            messageElement.innerText = message;
+                            messageElement.style.display = "block";
+                            if (isCorrect === true) {
+                                getQuestion(accessCookie("sessionID"));
+                            }
+                        } else if (ansStatus === "ERROR") {
+                            let errorMessages = jsonObject.errorMessages;
+
+                            for (let i = 0; i < errorMessages.length; i++) {
+                                messageElement.innerText = errorMessages[i];
+                            }
+                        }
+                    });
+            }
+
+        });
+
+}
 
 //function gets leaderboard
     function getLeaderboard(thsession) {
