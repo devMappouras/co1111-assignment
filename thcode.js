@@ -60,8 +60,8 @@ function checkCookie(playersName) {
         //alert("Welcome Back!");
         let link = "question.html?player="+ playersName +"&treasure-hunt-id="+ accessCookie("sessionID");
         console.log(link);
-        getQuestion(link);
-        //window.location.replace(link);
+        //getQuestion(link);
+        window.location.replace(link);
     }
 }
 
