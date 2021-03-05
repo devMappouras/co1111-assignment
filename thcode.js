@@ -9,6 +9,8 @@ function getTreasureHunts() {
 
             let playersName=prompt("Enter Your Name:", "");
 
+            checkCookie(playersName);
+
             //ul element that shows treasure hunts list
             let thList = document.getElementById("thList");
             let treasureHunts = jsonObject.treasureHunts;
@@ -51,16 +53,17 @@ function accessCookie(cookieName)
     return "";
 }
 
-
-/*
 //checks if session has already started and did not finish
-function checkCookie() {
-    var sesid = accessCookie("testCookie");
-    if (sesid !== "") {
-        alert("Welcome Back!");
+function checkCookie(playersName) {
+    var nameInTh = accessCookie("username");
+    if (playersName === nameInTh) {
+        //alert("Welcome Back!");
+        let link = "https://codecyprus.org/th/api/question?session=" + accessCookie("sessionID");
+        console.log(link);
+        getQuestion(link);
+        //window.location.replace(link);
     }
 }
-*/
 
 //function that starts the th game
     function getStartData() {
