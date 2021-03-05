@@ -110,7 +110,7 @@ let sendAnswerBool = false;
 
         //example link
         //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/question?session=" + thsession)
+        fetch("https://codecyprus.org/th/api/question?session=" + accessCookie("sessionID"))
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
