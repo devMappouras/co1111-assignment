@@ -93,7 +93,8 @@ function checkCookie(playersName) {
                     //gets questions from server and shows them to the user
                     getQuestion(thsession);
                 } else {
-                    document.write(jsonObject.errorMessages);
+                    alert(jsonObject.errorMessages);
+                    window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
                 }
 
                 //console.log(thsession);
