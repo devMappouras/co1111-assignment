@@ -11,12 +11,12 @@
 .header h1 {
 	font-family: "Montserrat", sans-serif;
 	color: white;
-	font-size: 150%;
+	font-size: 180%;
 	padding: 20px;
 	
 }
 .header img {
-	width: 100%
+	width: 10%;
 }
 
 ul { /* styling for the menu */
@@ -106,7 +106,12 @@ a {
 .container3 img {
 	width: 30%;
 }
-
+.container4 {
+	border: solid 1px black;
+	background-color: oldlace;
+	padding: 15px;
+	margin: 25px;
+}
 
 /*button {
 
