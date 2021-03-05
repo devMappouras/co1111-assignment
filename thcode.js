@@ -58,7 +58,7 @@ function checkCookie(playersName) {
     var nameInTh = accessCookie("username");
     if (playersName === nameInTh) {
         //alert("Welcome Back!");
-        let link = "https://codecyprus.org/th/api/question?session=" + accessCookie("sessionID");
+        let link = accessCookie("sessionID");
         console.log(link);
         getQuestion(link);
         //window.location.replace(link);
