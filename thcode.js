@@ -60,8 +60,8 @@ function checkCookie(playersName) {
         //alert("Welcome Back!");
         let link = "question.html?player="+ playersName +"&treasure-hunt-id="+ accessCookie("sessionID");
         console.log(link);
-        //getQuestion(link);
-        window.location.replace(link);
+        getQuestion(link);
+        //window.location.replace(link);
     }
 }
 
@@ -107,6 +107,8 @@ let sendAnswerBool = false;
 
 //function that calls the questions from server
     function getQuestion(thsession) {
+
+        thsession = accessCookie("sessionID");
 
         //example link
         //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
