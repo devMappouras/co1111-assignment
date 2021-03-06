@@ -175,7 +175,6 @@ let latitude = 0;
                 let submitNo = document.getElementById("submitNo");
                 let answerNo = document.getElementById("answerNo");
 
-
                 //boolean elements
                 let boolF = document.getElementById("boolF");
                 let boolT = document.getElementById("boolT");
@@ -548,7 +547,6 @@ function showPosition(lat, long, answer) {
 
 //function gets score of current player
 function getScore() {
-    let limit = 15;
 
     //example link
     //https://codecyprus.org/th/api/score?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
