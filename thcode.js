@@ -1,4 +1,3 @@
-
 //calls treasure hunts from API
 //creates a list with all treasure hunts
 function getTreasureHunts() {
@@ -8,8 +7,6 @@ function getTreasureHunts() {
         .then(jsonObject => {
 
             let playersName=prompt("Enter Your Name:", "");
-
-            checkCookie(playersName);
 
             //ul element that shows treasure hunts list
             let thList = document.getElementById("thList");
@@ -59,49 +56,51 @@ function checkCookie(playersName) {
     if (playersName === nameInTh) {
         //alert("Welcome Back!");
         let link = accessCookie("sessionID");
-        console.log(link);
-        getQuestion(link);
-        //window.location.replace(link);
+        //window.location.replace("question.html?player="+ nameInTh +"&treasure-hunt-id="+link);
+        //getQuestion(link);
+
     }
 }
 
 //function that starts the th game
-    function getStartData() {
+function getStartData() {
 
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const playersName = urlParams.get('player')
-        let treasureHuntID = urlParams.get('treasure-hunt-id')
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const playersName = urlParams.get('player');
+    let treasureHuntID = urlParams.get('treasure-hunt-id');
 
-        //console.log(playersName);
-        //console.log(treasureHuntID);
+    //console.log(playersName);
+    //console.log(treasureHuntID);
 
-        //example link
-        //https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
-        fetch("https://codecyprus.org/th/api/start?player=" + playersName + "&app=team3TreasureHunt&treasure-hunt-id=" + treasureHuntID + "")
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
+    //example link
+    //https://codecyprus.org/th/api/start?player=Homer&app=simpsons-app&treasure-hunt-id=ag9nfmNvZGVjeXBydXNvcmdyGQsSDFRyZWFzdXJlSHVudBiAgICAvKGCCgw
+    fetch("https://codecyprus.org/th/api/start?player=" + playersName + "&app=team3TreasureHunt&treasure-hunt-id=" + treasureHuntID + "")
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
 
-                let thstatus = jsonObject.status;
-                let thsession = jsonObject.session;
+            let thstatus = jsonObject.status;
+            let thsession = jsonObject.session;
 
-                let totalQuestions = jsonObject.numOfQuestions;
+            let totalQuestions = jsonObject.numOfQuestions;
 
-                if (thstatus === "OK") {
-                    createCookie("sessionID", thsession, 1);
-                    createCookie("username", playersName, 1);
-                    //gets questions from server and shows them to the user
-                    getQuestion(thsession);
-                } else {
-                    alert(jsonObject.errorMessages);
-                    window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
-                }
+            if (thstatus === "OK") {
+                createCookie("sessionID", thsession, 1);
+                createCookie("username", playersName, 1);
+                createCookie("saveGame", "true", 1);
 
-                //console.log(thsession);
-                //console.log(totalQuestions);
+                //gets questions from server and shows them to the user
+                getQuestion(thsession);
+            } else {
+                alert(jsonObject.errorMessages);
+                window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
+            }
 
-            });
-    }
+            //console.log(thsession);
+            //console.log(totalQuestions);
+        });
+}
+
 
 let sendAnswerBool = false;
 let longitude = 0;
@@ -114,7 +113,7 @@ let latitude = 0;
 
         //example link
         //https://codecyprus.org/th/api/question?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/question?session=" + accessCookie("sessionID"))
+        fetch("https://codecyprus.org/th/api/question?session=" +thsession)
             .then(response => response.json()) //Parse JSON text to JavaScript object
             .then(jsonObject => {
 
@@ -194,6 +193,9 @@ let latitude = 0;
                 let qrBtn = document.getElementById("qrBtn");
                 //get element in html to show camera switch button
                 let switchButton = document.getElementById("switch");
+
+                //div that shows progress and score
+                let progressInfo = document.getElementById("progressInfo");
 
                 //exports question to player
                 question.innerHTML = questionText;
@@ -333,6 +335,8 @@ let latitude = 0;
                 }
                 //when treasure hunt ends, brings player to leaderboard
                 else if (isComplete) {
+                    //hiding elements so only leaderboard shows when th finishes
+                    progressInfo.style.display = "none";
                     for (i = 0; i < qrDropdown.length; i++) {
                         qrDropdown[i].style.display = "none";
                     }
