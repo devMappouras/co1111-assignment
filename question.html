@@ -32,32 +32,27 @@
 
             <!-- elements for string questions-->
             <input type="text" class="answerButton" id="answerString">
-            <button class="questionButton" id="submitString">Submit</button>
+            <button class="questionButton clickable" id="submitString">Submit</button>
 
             <!-- elements for Number questions-->
             <input type="number" class="answerButton" id="answerNo">
-            <button class="questionButton" id="submitNo">Submit</button>
+            <button class="questionButton clickable" id="submitNo">Submit</button>
 
             <!-- elements for boolean questions-->
-            <button class="questionButton" id="boolT">TRUE</button>
-            <button class="questionButton" id="boolF">FALSE</button>
+            <button class="questionButton clickable" id="boolT">TRUE</button>
+            <button class="questionButton clickable" id="boolF">FALSE</button>
 
             <!-- elements for MCQ questions-->
-            <button class="questionButton" id="buttonA">A</button>
-            <button class="questionButton" id="buttonB">B</button>
-            <button class="questionButton" id="buttonC">C</button>
-            <button class="questionButton" id="buttonD">D</button>
+            <button class="questionButton clickable" id="buttonA">A</button>
+            <button class="questionButton clickable" id="buttonB">B</button>
+            <button class="questionButton clickable" id="buttonC">C</button>
+            <button class="questionButton clickable" id="buttonD">D</button>
 
-            <!-- shows only when th finishes-->
-            <table class="questionButton" id="lbScores">
-                <tr>
-                    <th>Team</th>
-                    <th>Score</th>
-                    <th>Time</th>
-                </tr>
-            </table>
+
+
 
         </div>
+
 
         <button class="questionButton qrBtn" id="skipButton">Skip</button>
         <button class="questionButton qrBtn" id="qrBtn">Camera</button>
@@ -78,8 +73,25 @@
         <br>
         <p class="questionButton" id="locMessage"></p>
 
-        <!-- a element (visible only on leaderboard) -->
+        <div>
+            <!-- shows only when th finishes-->
+            <table class="questionButton" id="lbScores">
+                <tr>
+                    <th>Team</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                </tr>
+            </table>
+
+            <!-- a element (visible only on leaderboard)
+            <a class="questionButton" id="toHome" href="index.html">HOMEPAGE</a>
+            -->
+
+        </div>
+
+        <!-- a element (visible only on leaderboard)-->
         <a class="questionButton" id="toHome" href="index.html">HOMEPAGE</a>
+
 
         <script>
             getStartData();
