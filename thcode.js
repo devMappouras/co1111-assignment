@@ -193,9 +193,10 @@ let latitude = 0;
                 //get element in html to show camera switch button
                 let switchButton = document.getElementById("switch");
 
-                //div that shows progress and score
+                //div that shows progress and score (hide when on leaderboard)
                 let progressInfo = document.getElementById("progressInfo");
-
+                //div for answer elements (hide when on leaderboard)
+                let questionsDiv = document.getElementById("questionsDiv");
                 //exports question to player
                 question.innerHTML = questionText;
 
@@ -222,8 +223,6 @@ let latitude = 0;
                     //show camera switch button
                     switchButton.style.display = "inline-block";
 
-                    getScore();
-
                     //checks if question can be skipped
                     if (isSkip === true) {
                         skipQuestion(thsession);
@@ -241,14 +240,14 @@ let latitude = 0;
                         boolT.onclick = function () {
 
                             answer = true;
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
                         //get answer (using onclick in js)
                         boolF.onclick = function () {
 
                             answer = false;
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
                     } else if (questionType === "INTEGER") {
@@ -261,7 +260,7 @@ let latitude = 0;
                         submitNo.onclick = function () {
 
                             answer = answerNo.value;
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                             answerNo.value = '';
                         };
 
@@ -277,7 +276,7 @@ let latitude = 0;
                         submitNo.onclick = function () {
 
                             answer = answerNo.value;
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                             answerNo.value = '';
                         };
                     } else if (questionType === "MCQ") {
@@ -292,28 +291,28 @@ let latitude = 0;
                         buttonA.onclick = function () {
 
                             answer = 'A';
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
                         //get answer (using onclick in js)
                         buttonB.onclick = function () {
 
                             answer = 'B';
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
                         //get answer (using onclick in js)
                         buttonC.onclick = function () {
 
                             answer = 'C';
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
                         //get answer (using onclick in js)
                         buttonD.onclick = function () {
 
                             answer = 'D';
-                            sendAnswertoServer(thsession, answer);
+                            sendAnswertoServer(thsession, answer, isLocation);
                         };
 
 
@@ -331,11 +330,13 @@ let latitude = 0;
                             answerString.value = '';
                         };
                     }
+                    getScore();
                 }
                 //when treasure hunt ends, brings player to leaderboard
                 else if (isComplete) {
                     //hiding elements so only leaderboard shows when th finishes
                     progressInfo.style.display = "none";
+                    questionsDiv.style.display = "none";
                     for (i = 0; i < qrDropdown.length; i++) {
                         qrDropdown[i].style.display = "none";
                     }
@@ -347,10 +348,6 @@ let latitude = 0;
     function sendAnswertoServer(thsession, answer, isLocation) {
         if (isLocation === true) {
             getLocation(answer);
-            console.log(latitude);
-            console.log(longitude);
-
-            //example link
 
         } else {
             fetch("https://codecyprus.org/th/api/answer?session=" + thsession + "&answer=" + answer + "")
