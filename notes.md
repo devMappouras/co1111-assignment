@@ -32,5 +32,8 @@ __________
              question index and current score elements in question html page (make them not clickable).
              Will also add description/role on index page
              
-          
+ 06/03/21: Christos and Marina participated in this meeting to discuss about unit testing.
+           For the purposes of this assignment, we decided to test the following functions: 
+           getTreasureHunts (list), getScore (score) and getLeaderboard (leaderboard)
+           We also had a brief discussion on user acceptance testing
 
