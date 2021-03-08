@@ -6,16 +6,20 @@ function listTest() {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            let numOfThs = document.getElementById("thNum").value;
+            let numOfThs = document.getElementById("thNum");
+
             //ul element that shows treasure hunts list
-            let listTestOutput = document.getElementById("ListTestOutput");
+            let listTestOutput = document.getElementById("listTestOutput");
             let treasureHunts = jsonObject.treasureHunts;
 
             for(let i=0; i < treasureHunts.length; i++) {
 
-               let thList = document.createElement("li");
+                let thList = document.createElement("li");
                 let thName =  treasureHunts[i].name;
                 let thDesc =  treasureHunts[i].description;
+                let treasureHuntID =  treasureHunts[i].uuid;
+
+
                 let thOwnerEmail=treasureHunts[i].ownerEmail;
                 let thSecretCode=treasureHunts[i].secretCode;
                 let thSalt = treasureHunts[i].salt;
@@ -28,10 +32,11 @@ function listTest() {
                 let thEmailResults = treasureHunts[i].emailResults;
                 let thHasPrize = treasureHunts[i].hasPrize;
 
-               // let treasureHuntID =  treasureHunts[i].uuid;
 
 
-                thList.innerHTML ="<div id='listTestOutput'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<p>" +thOwnerEmail+ "</p>" + "<p>" +thSecretCode+ "</p>" +"<p>" +thSalt+ "</p>" + "<p>" +thVisibility+ "</p>" + "<p>" +thStartsOn+ "</p>" + "<p>" +thEndsOn+ "</p>" +"<p>" +thMaxDuration+ "</p>" + "<p>" +thShuffled+ "</p>" + "<p>" +thAuthentication+ "</p>" + "<p>" +thEmailResults+ "</p>" + "<p>" +thHasPrize+ "</p>"+ "</div><br>";
+
+
+                thList.innerHTML ="<div id='liID'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<p>" +thOwnerEmail+ "</p>" + "<p>" +thSecretCode+ "</p>" + "<p>" +thSalt+ "</p>" + "<p>" +thVisibility+ "</p>" + "<p>" +thStartsOn+ "</p>" + "<p>" +thEndsOn+ "</p>" + "<p>" +thMaxDuration+ "</p>" + "<p>" +thShuffled+ "</p>" + "<p>" +thAuthentication+ "</p>" + "<p>" +thEmailResults+ "</p>" + "<p>" +thHasPrize+ "</p>" + "</div><br>";
 
                 listTestOutput.appendChild(thList);
             }
