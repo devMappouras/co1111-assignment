@@ -405,29 +405,32 @@ function skipQuestion(thsession) {
 
     //if skipButton pressed then skips the current question
     skipButton.onclick = function () {
-        //example link
-        //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
-        fetch("https://codecyprus.org/th/api/skip?session=" + thsession)
-            .then(response => response.json()) //Parse JSON text to JavaScript object
-            .then(jsonObject => {
+        var check = confirm("Do you want to skip this question?");
+        if (check === true) {
+            //example link
+            //https://codecyprus.org/th/api/skip?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM
+            fetch("https://codecyprus.org/th/api/skip?session=" + thsession)
+                .then(response => response.json()) //Parse JSON text to JavaScript object
+                .then(jsonObject => {
 
-                //initializing properties from server
-                let skipStatus = jsonObject.status;
+                    //initializing properties from server
+                    let skipStatus = jsonObject.status;
 
-                //specifies if the user has completed this treasure hunt
-                let isComplete = jsonObject.completed;
+                    //specifies if the user has completed this treasure hunt
+                    let isComplete = jsonObject.completed;
 
-                //gets message from server
-                let message = jsonObject.message;
+                    //gets message from server
+                    let message = jsonObject.message;
 
-                //shows message according to status (OK/ERROR)
-                if (skipStatus === "OK") {
-                    messageElement.innerText = message;
-                    messageElement.style.display = "block";
-                    getQuestion(thsession);
-                }
+                    //shows message according to status (OK/ERROR)
+                    if (skipStatus === "OK") {
+                        messageElement.innerText = message;
+                        messageElement.style.display = "block";
+                        getQuestion(thsession);
+                    }
 
-            });
+                });
+        }
     }
 }
 
@@ -546,7 +549,7 @@ function getLeaderboard(thsession) {
 //function gets leaderboard
 function getRank(thsession) {
 
-    fetch("https://codecyprus.org/th/api/leaderboard?session=" + thsession + "")
+    fetch("https://codecyprus.org/th/api/leaderboard?session=" + thsession + "&sorted")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
