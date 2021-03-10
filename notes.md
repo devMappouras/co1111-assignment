@@ -36,4 +36,12 @@ __________
            For the purposes of this assignment, we decided to test the following functions: 
            getTreasureHunts (list), getScore (score) and getLeaderboard (leaderboard)
            We also had a brief discussion on user acceptance testing
+           
+ 10/03/21: In this meeting we discussed more about User Acceptance Test (UAT), Nielsen’s heuristics and feedback #4.
+          At this point, we decided Namu will have the role of the client for UAT. 
+          In the test.html we will describe how we designed our product in a way that Nielsen's heuristic rules are satisfied.  
+          For the time being, Namu will do a research on UAT, Christos will work on scoreboard (add a 'try again' button, 
+          add 'refresh' button, create a new table that contains user's current score and ranking) 
+          and Marina will work on unit testing (score, scoreboard) and will update css on scoreboard.
+          
 
