@@ -6,7 +6,7 @@ function listTest() {
     let thNum = document.getElementById("thNum");
     listTestOutput.style.display="block";
 
-    //if answer requires location then get location before sending answer
+
     let answer = thNum.value;
 
     fetch("https://codecyprus.org/th/test-api/list?number-of-ths=" + answer)
@@ -49,4 +49,41 @@ function listClear() {
 
     let listTestOutput = document.getElementById("listTestOutput");
     listTestOutput.style.display="none";
+}
+
+function scoreTest(){
+
+    let scoreTestOutput = document.getElementById("scoreTestOutput");
+    let thScoreInput = document.getElementById("thScoreInput");
+    scoreTestOutput.style.display="block";
+
+    let answer = thScoreInput.value;
+
+fetch("https://codecyprus.org/th/test-api/score?score=" + answer)
+    .then(response => response.json()) //Parse JSON text to JavaScript object
+    .then(jsonObject => {
+
+       //let treasureHunts = jsonObject.treasureHunts;
+       let thScoreTest = document.createElement("li");
+       let thCompleted =  jsonObject.completed;
+       let thFinished =  jsonObject.finished;
+      // let treasureHuntID =  treasureHunts[i].uuid;
+
+       let thPlayer=jsonObject.player;
+       let thScore=jsonObject.score;
+       let thHasPrize = jsonObject.hasPrize;
+       let thStatus = jsonObject.status;
+
+
+
+       thScoreTest.innerHTML ="<div id='liID'>" + "<p>" +thCompleted+ "</p>"+ "<p>" +thFinished+ "</p>" + "<p>" +thPlayer+ "</p>" + "<p>" +thScore+ "</p>" + "<p>" +thHasPrize+ "</p>" + "<p>" +thStatus+ "</p>" + "</div><br>";
+
+       scoreTestOutput.appendChild(thScoreTest);
+
+    });
+}
+
+function scoreClear(){
+    let scoreTestOutput = document.getElementById("scoreTestOutput");
+    scoreTestOutput.style.display="none";
 }
