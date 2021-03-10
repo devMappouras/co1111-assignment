@@ -535,8 +535,10 @@ function getLeaderboard(thsession) {
                     second: '2-digit' };
                 let date = new Date(teamTime);
                 let formattedDate = date.toLocaleDateString("en-UK", options);
+                let num = i +1;
 
-                tableContent += "<tr>" + "<td>" + teamName + "</td>" +
+                tableContent += "<tr>" + "<td>" + num + "</td>" +
+                    "<td>" + teamName + "</td>" +
                     "<td>" + teamScore + "</td>" +
                     "<td>" + formattedDate + "</td>" +
                     "</tr>";
