@@ -409,6 +409,9 @@ th, td {
 
 }
 
-
-
 .show {display:block;}
+
+/*style for testing*/
+#scoreTestOutput{
+	list-style-type: none;
+}
