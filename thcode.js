@@ -93,7 +93,7 @@ function getStartData() {
                 getQuestion(thsession);
             } else {
                 alert(jsonObject.errorMessages);
-                window.location.replace("https://pelopedis.github.io/co1111-assignment/app.html");
+                window.location.replace("app.html");
             }
 
             //console.log(thsession);
@@ -507,10 +507,12 @@ function getLeaderboard(thsession) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            //ul element that shows teams score
+            //table element that shows teams score
             let lbScores = document.getElementById("lbScores");
-            //gets button
+            //gets leaderboard buttons
             let toHome = document.getElementById("toHome");
+            let toPlayAgain = document.getElementById("toPlayAgain");
+            let toRefresh = document.getElementById("toRefresh");
             //gets scoreboard Title
             let scoreboardTitle = document.getElementById("scoreboardTitle");
 
@@ -520,6 +522,10 @@ function getLeaderboard(thsession) {
             scoreboardTitle.style.display = "block";
             lbScores.style.display = "block";
             toHome.style.display = "block";
+            toPlayAgain.style.display = "inline-block";
+            toRefresh.style.display = "inline-block";
+
+            let temp  = accessCookie("username");
 
             //gets scores
             let leaderboard = jsonObject.leaderboard;
@@ -537,11 +543,19 @@ function getLeaderboard(thsession) {
                 let formattedDate = date.toLocaleDateString("en-UK", options);
                 let num = i +1;
 
-                tableContent += "<tr>" + "<td>" + num + "</td>" +
-                    "<td>" + teamName + "</td>" +
-                    "<td>" + teamScore + "</td>" +
-                    "<td>" + formattedDate + "</td>" +
-                    "</tr>";
+                if (temp === teamName) {
+                    tableContent += "<tr>" + "<b>" + "<td>" + num + "</td>" +
+                        "<td>" + teamName + "</td>" +
+                        "<td>" + teamScore + "</td>" +
+                        "<td>" + formattedDate + "</td>" + "</b>" +
+                        "</tr>";
+                } else {
+                    tableContent += "<tr>" + "<td>" + num + "</td>" +
+                        "<td>" + teamName + "</td>" +
+                        "<td>" + teamScore + "</td>" +
+                        "<td>" + formattedDate + "</td>" +
+                        "</tr>";
+                }
             }
 
             lbScores.innerHTML += tableContent;
@@ -555,16 +569,15 @@ function getRank(thsession) {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            //gets rank element
-            let lbRank = document.getElementById("lbRank");
-            //gets final score element
-            let finalScore = document.getElementById("finalScore");
+            //table element that shows teams score
+            let userScores = document.getElementById("userScores");
 
             let temp  = accessCookie("username");
 
             //rank and final score visible to player
-            lbRank.style.display = "block";
-            finalScore.style.display = "block";
+            userScores.style.display = "block";
+
+            let tableContent = "";
 
             //gets scores
             let leaderboard = jsonObject.leaderboard;
@@ -575,12 +588,25 @@ function getRank(thsession) {
 
                 let userName = leaderboard[i].player;
                 let teamScore = leaderboard[i].score;
+                let teamTime = leaderboard[i].completionTime;
+
+                let options = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+                    second: '2-digit' };
+                let date = new Date(teamTime);
+                let formattedDate = date.toLocaleDateString("en-UK", options);
+                let num = i +1;
+
                 if (temp === userName) {
-                    lbRank.innerHTML = "You Ranked " + i;
-                    finalScore.innerHTML = "Your Final Score is: " + teamScore;
+                    tableContent += "<tr>" + "<td>" + num + "</td>" +
+                        "<td>" + userName + "</td>" +
+                        "<td>" + teamScore + "</td>" +
+                        "<td>" + formattedDate + "</td>" +
+                        "</tr>";
                 }
 
             }
+
+            userScores.innerHTML += tableContent;
         });
 }
 

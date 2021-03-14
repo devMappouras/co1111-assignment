@@ -75,12 +75,25 @@
 
             <h1 class="questionButton" id="scoreboardTitle">ScoreBoard</h1>
 
-           <a class="questionButton" id="toHome" href="index.html">
-                <img alt="Homepage" id="hpIcon" src="images/homepage%20(1).svg">
+            <a class="questionButton" id="toHome" href="index.html">
+               <img alt="Homepage" id="hpIcon" src="images/homepage%20(1).svg">
             </a>
 
-            <p class="questionButton" id="lbRank"></p>
-            <p class="questionButton" id="finalScore"></p>
+            <a class="questionButton" id="toPlayAgain" href="app.html">Play Again</a>
+
+            <button class="questionButton" id="toRefresh" onClick="window.location.reload();">Refresh</button>
+
+            <div >
+                <!-- shows only when th finishes-->
+                <table class="questionButton" style="font-weight:bold;" id="userScores">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </table>
+            </div>
 
             <div >
                 <!-- shows only when th finishes-->
