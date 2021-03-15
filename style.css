@@ -7,6 +7,8 @@
 .header {
 	color: white;
 	background-color: #483D8B;
+	margin: 5px;
+	border: solid 2px oldlace;
 }
 .header h1 {
 	font-family: "Montserrat", sans-serif;
@@ -213,6 +215,8 @@ footer {
 	color: white;
 	font-family: "Montserrat", sans-serif;
 	padding: 10px;
+	margin: 10px;
+	border: solid 2px oldlace;
 }
 
 
@@ -409,6 +413,9 @@ th, td {
 
 }
 
-
-
 .show {display:block;}
+
+/*style for testing*/
+#scoreTestOutput{
+	list-style-type: none;
+}

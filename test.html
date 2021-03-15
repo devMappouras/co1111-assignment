@@ -3,7 +3,9 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/JavaScript" src="thTest.js"></script>
+        <link rel="stylesheet" href="style.css">
         <title>Unit Testing</title>
     </head>
 
@@ -21,5 +23,17 @@
             </ul>
 
         </div>
+
+    <div>
+        <h3>Test getScore Function</h3>
+        Parameter:
+        <input type="number" id="thScoreInput" placeholder="Enter score e.g. 42">
+        <button id="scSubmit" onclick="scoreTest()">Submit</button>
+        <button id="scClear" onclick="scoreClear()">Clear</button>
+
+        <ul id="scoreTestOutput">
+        </ul>
+
+    </div>
     </body>
 </html>
