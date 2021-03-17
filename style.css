@@ -7,8 +7,8 @@
 .header {
 	color: white;
 	background-color: #483D8B;
-	margin: 5px;
-	border: solid 2px oldlace;
+	/*margin: 5px;
+	border: solid 2px oldlace;*/
 }
 .header h1 {
 	font-family: "Montserrat", sans-serif;
@@ -96,11 +96,10 @@ a {
 	width: 15%;
 }
 .container2 {
-	/*border: solid 1px black;*/
 	background-color: oldlace;
 	padding: 10px;
 	margin:50px 25px 50px 25px;
-	/*margin: 25px 0 25px 0;*/
+
 }
 .containerTest {
 	border: solid 1px black;
@@ -215,8 +214,8 @@ footer {
 	color: white;
 	font-family: "Montserrat", sans-serif;
 	padding: 10px;
-	margin: 10px;
-	border: solid 2px oldlace;
+	/*margin: 10px;
+	border: solid 2px oldlace;*/
 }
 
 
@@ -333,12 +332,12 @@ footer {
 .div-content {
 
 	margin:auto;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	display: none;
 	position: relative;
-	background-color: aliceblue;
-	width:150px;
-	height: 150px;
+	background-color: oldlace;
+	width:200px;
+	height: 200px;
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
@@ -348,33 +347,39 @@ video{
 	height: 100%;
 	position: absolute; /*positions the video relative to parent element (div-content)*/
 	top:0; /*this ensures that the position of the video is at the very top*/
-	left:-50%; /*this sets the camera/video frame position to be 50% to the left (centers the camera)*/
+	left:0; /*this sets the video position to be at the very left (centers camera)*/
 
+}
+
+#content{
+	width: 160px;
+	margin: 0.5em;
+	padding: 0.5em;
+	color: black;
+	text-align: center;
+	background-color: azure;
+	border: 1px solid #483D8B;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 
 /*css styling for scoreboard*/
 
 #scoreboard{
-
-
 	margin: 0;
 	top: 0;
 	width: 100%;
-
-
 
 }
 
 
 #scoreboardTitle{
-
 	margin: 0;
-
 }
 
 #toHome{
-
 	width: 30px;
 	height: 30px;
 	margin: auto;
@@ -383,8 +388,6 @@ video{
 	position: absolute;
 	top:0;
 	left:0;
-
-
 }
 #hpIcon{
 	width:100%;
