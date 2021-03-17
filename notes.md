@@ -44,4 +44,8 @@ __________
           add 'refresh' button, create a new table that contains user's current score and ranking) 
           and Marina will work on unit testing (score, scoreboard) and will update css on scoreboard.
           
+ 17/03/21: Christos and Marina participated in this meeting to discuss elaborately on Nielsen’s heuristics and how these rules
+          apply to the Treasure Hunt game. Furthermore, we discussed about what kind of tests we will provide the client (Namu) for the UAT. 
+          Christos will work on cookies (remember the session) and Marina will work on unit testing (scoreboard). 
+          
 
