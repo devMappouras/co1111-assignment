@@ -28,10 +28,12 @@ ul { /* styling for the menu */
 	margin-left:10%;
 	padding: 0;
 	background-color: oldlace;
+
 }
 
 li {
 	display: inline;
+
 }
 
 li a {
