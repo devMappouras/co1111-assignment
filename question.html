@@ -79,6 +79,7 @@
                <img alt="Homepage" id="hpIcon" src="images/homepage%20(1).svg">
             </a>
 
+            <div class="questionButton" id="filler"></div>
             <a class="questionButton" id="toPlayAgain" href="app.html">Play Again</a>
 
             <button class="questionButton" id="toRefresh" onClick="window.location.reload();">Refresh</button>
@@ -98,11 +99,11 @@
             <div >
                 <!-- shows only when th finishes-->
                 <table class="questionButton" id="lbScores">
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team</th>
-                        <th>Score</th>
-                        <th>Time</th>
+                    <tr class="fixHeader">
+                        <th id="rankHeading">Rank</th>
+                        <th id="teamHeading">Team</th>
+                        <th id="scoreHeading">Score</th>
+                        <th id="timeHeading">Time</th>
                     </tr>
                 </table>
             </div>

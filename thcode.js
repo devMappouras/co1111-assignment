@@ -515,6 +515,7 @@ function getLeaderboard(thsession) {
             let toRefresh = document.getElementById("toRefresh");
             //gets scoreboard Title
             let scoreboardTitle = document.getElementById("scoreboardTitle");
+            let filler = document.getElementById("filler");
 
             let tableContent = "";
 
@@ -524,6 +525,7 @@ function getLeaderboard(thsession) {
             toHome.style.display = "block";
             toPlayAgain.style.display = "inline-block";
             toRefresh.style.display = "inline-block";
+            filler.style.display="block";
 
             let temp  = accessCookie("username");
 

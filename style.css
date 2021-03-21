@@ -387,6 +387,12 @@ video{
 
 #scoreboardTitle{
 	margin: 0;
+	padding: 15px;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	top:0;
+	left:0;
 }
 
 #toHome{
@@ -394,13 +400,37 @@ video{
 	height: 30px;
 	margin: auto;
 	padding: 10px 10px;
-	/*margin-top: 5px;*/
-	position: absolute;
+	position: fixed;
 	top:0;
 	left:0;
 }
 #hpIcon{
 	width:100%;
+}
+#toPlayAgain{
+
+	position: fixed;
+	top: 55px;
+	left: 20px;
+
+}
+#toRefresh{
+
+	position: fixed;
+	top: 55px;
+	right: 20px;
+
+}
+#filler{
+	position:fixed;
+	height: 70px;
+	background-color: tan;
+	width:100%;
+	top: 49px;
+	left: 0;
+	margin: 0;
+
+
 }
 
 /*style for table */
@@ -433,7 +463,10 @@ th, td {
 	color: #483D8B;
 	border: #483D8B;
 	padding: 10px 5px;
-	width:100%
+	position: fixed;
+	width:100%;
+	margin: 0;
+	top: 120px;
 
 
 }
@@ -441,12 +474,49 @@ th, td {
 	margin: 0;
 	background-color: #6F63BB;
 	padding: 8px;
-	width:100%
+	width:100%;
+	margin-top: 240px;
+}
+.fixHeader{
+	margin: 0;
+	background-color: #6F63BB;
+	padding: 8px;
+	width:100%;
+	position: fixed;
+	top: 200px;
+	left:0;
+
+}
+#teamHeading{
+
+	padding-left: 30px;
+
+}
+#scoreHeading{
+	padding-left: 60px;
+}
+#timeHeading{
+	padding-left: 30px;
 }
 
 .show {display:block;}
 
 /*style for testing*/
+#testList{
+	margin: auto;
+}
+#testScore{
+	margin: auto;
+}
 #scoreTestOutput{
 	list-style-type: none;
+}
+
+/*styling for heuristics page*/
+.containerHeuristics {
+	background-color: oldlace;
+	padding: 10px;
+	margin: 50px 25px;
+	text-align: justify;
+
 }
