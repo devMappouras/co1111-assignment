@@ -11,32 +11,84 @@
     </head>
 
     <body>
-    <h1 class="header">Test Plan</h1>
+    <h1 class="header">Unit Testing</h1>
+
+    <div class="containerTesting">
+        <h2>What is Unit Testing?</h2>
+        <p>
+            Unit Testing is a type of software testing where individual units or components of a software are tested separately.
+            The purpose is to validate that each unit of the software code performs as expected (verify correctness of isolated code).
+            Unit Testing is done during the development (coding phase) of an application by the developers
+            and it is the first part of software testing process.
+
+            <br>
+            <br>
+        </p>
+        <p>
+            This part of testing is implemented by utilizing the <a href="https://codecyprus.org/th/testing" target="_blank">Code Cyprus test-API</a>.
+
+            <br>
+            <br>
+        </p>
+        <p>
+            <u>To check whether this app works as expected, the following unit tests were conducted:</u>
+
+            <br>
+        </p>
+        <ol>
+            <li>Unit test 1: list function <br> </li>
+            <li>Unit test 2: score function <br> </li>
+            <li>Unit test 3: question function <br> </li>
+            <li>Unit test 4: leaderboard function <br> </li>
+        </ol>
+
+    </div>
 
     <a id="toHome" href="index.html">
         <img alt="Homepage" id="hpIcon" src="images/homepage%20(1).svg">
     </a>
-        <div id="testList">
-            <h3>Test getTreasureHunts Function</h3>
+
+    <div>
+            <h3>Test List Function</h3>
+            <p></p>
             Parameter:
-            <input type="number" id="thNum" placeholder="Pick a number e.g. 1, 2">
+            <input type="number" id="thNum" placeholder="Pick a number e.g. 1, 2"> <br>
             <button id="thSubmit" onclick="listTest()">Submit</button>
             <button id="thClear" onclick="listClear()">Clear</button>
 
             <ul id="listTestOutput">
             </ul>
 
-        </div>
+    </div>
 
-    <div id="testScore">
+    <div>
         <h3>Test getScore Function</h3>
         Parameter:
-        <input type="number" id="thScoreInput" placeholder="Enter score e.g. 42">
+        <input type="number" id="thScoreInput" placeholder="Enter score e.g. 42"> <br>
         <button id="scSubmit" onclick="scoreTest()">Submit</button>
         <button id="scClear" onclick="scoreClear()">Clear</button>
 
         <ul id="scoreTestOutput">
         </ul>
+
+    </div>
+
+
+    <div class="container1">
+
+        <h3>Test Leaderboard</h3>
+        Parameter:
+        <input type="number" id="numOfPlayers" placeholder="Number of players e.g. 10"> <br>
+        "Sort"
+        <input type="checkbox" id="sortLb"> <br>
+        <button id="lbSubmit" onclick="leaderboardTest()">Submit</button>
+        <button id="lbClear" onclick="leaderboardClear()">Clear</button>
+
+        <table id="lbTestOutput">
+            <th>Team</th>
+            <th>Score</th>
+            <th>Time</th>
+        </table>
 
     </div>
     </body>

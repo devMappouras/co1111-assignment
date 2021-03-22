@@ -25,7 +25,7 @@
 ul { /* styling for the menu */
 	list-style-type: none;
 	margin-right: 10%;
-	margin-left:10%;
+	margin-left: 10%;
 	padding: 0;
 	background-color: oldlace;
 
@@ -63,6 +63,7 @@ body {
 }
 a {
 	color: #FA9EC0;
+	text-decoration: none;
 }
 
 .title {
@@ -513,7 +514,7 @@ th, td {
 }
 
 /*styling for heuristics page*/
-.containerHeuristics {
+.containerTesting {
 	background-color: oldlace;
 	padding: 10px;
 	margin: 50px 25px;

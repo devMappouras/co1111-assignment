@@ -36,7 +36,9 @@ function listTest() {
                 let thEmailResults = treasureHunts[i].emailResults;
                 let thHasPrize = treasureHunts[i].hasPrize;
 
-                thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<p>" +thOwnerEmail+ "</p>" + "<p>" +thSecretCode+ "</p>" + "<p>" +thSalt+ "</p>" + "<p>" +thVisibility+ "</p>" + "<p>" +thStartsOn+ "</p>" + "<p>" +thEndsOn+ "</p>" + "<p>" +thMaxDuration+ "</p>" + "<p>" +thShuffled+ "</p>" + "<p>" +thAuthentication+ "</p>" + "<p>" +thEmailResults+ "</p>" + "<p>" +thHasPrize+ "</p>" + "<br>"+ "</div>";
+               thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<p>" +thOwnerEmail+ "</p>" + "<p>" +thSecretCode+ "</p>" + "<p>" +thSalt+ "</p>" + "<p>" +thVisibility+ "</p>" + "<p>" +thStartsOn+ "</p>" + "<p>" +thEndsOn+ "</p>" + "<p>" +thMaxDuration+ "</p>" + "<p>" +thShuffled+ "</p>" + "<p>" +thAuthentication+ "</p>" + "<p>" +thEmailResults+ "</p>" + "<p>" +thHasPrize+ "</p>" + "<br>"+ "</div>";
+               // thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<br>"+ "</div>";
+
 
                 listTestOutput.appendChild(thList);
             }
@@ -100,5 +102,66 @@ function scoreClear(){
 
    scoreTestOutput.style.display="none";
 
+
+}
+
+function leaderboardTest(){
+
+
+   let lbTestOutput=document.getElementById("lbTestOutput");
+   let numOfPlayers=document.getElementById("numOfPlayers");
+   let answer=numOfPlayers.value;
+    let sorted=false;
+
+    if(document.getElementById("sortLb").checked===true){
+        sorted=true;
+    }
+
+
+    fetch("https://codecyprus.org/th/test-api/leaderboard?sorted="+ sorted + "&hasPrize&size=" + answer)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            //let lbLimit=jsonObject.limit;
+
+            let tableContent = "";
+            //gets scores
+           let leaderboard = jsonObject.leaderboard;
+
+            //creating list items and adds scores to ul
+            for (let i = 0; i < leaderboard.length; i++) {
+
+                let teamName = leaderboard[i].player;
+                let teamScore = leaderboard[i].score;
+                let teamTime = leaderboard[i].completionTime;
+
+                let options = {
+                    day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit',
+                    second: '2-digit'
+                };
+                let date = new Date(teamTime);
+                let formattedDate = date.toLocaleDateString("en-UK", options);
+
+
+                tableContent += "<tr>" + "<td>" + teamName + "</td>" + "<td>" + teamScore + "</td>" + "<td>" + formattedDate + "</td>" + "</b>" + "</tr>";
+
+
+            };
+            lbTestOutput.innerHTML += tableContent;
+
+
+
+        })
+}
+
+function leaderboardClear(){
+
+    let table = document.getElementById("lbTestOutput");
+
+
+    for(let i = table.rows.length - 1; i > 0; i--)
+    {
+        table.deleteRow(i);
+    }
 
 }
