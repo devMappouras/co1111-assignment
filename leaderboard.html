@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <!-- main js file for contact with API -->
+        <script type="text/JavaScript" src="thcode.js"></script>
+        <!-- qrcode js -->
+        <script type="text/javascript" src="qrCodejs/instascan.min.js"></script>
+        <link rel="icon" href="images/parleyicon.png">
+        <title>Treasure Hunt</title>
+    </head>
+
+    <!-- this is the code for the loader. It will display the loader until the contents
+			of the page have loaded -->
+    <body onload="myFunction()" style="margin:0;">
+
+    <div id="loader"></div>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 2000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script>
+
+            <div id="scoreboard">
+
+                <div style="display:none;" id="myDiv" class="animate-bottom">
+                    <h1 class="questionButton" id="scoreboardTitle">ScoreBoard</h1>
+                </div>
+
+                <a class="questionButton" id="toHome" href="index.html">
+                    <img alt="Homepage" id="hpIcon" src="images/homepage%20(1).svg">
+                </a>
+
+                <div class="questionButton" id="filler"></div>
+                <a class="questionButton" id="toPlayAgain" href="app.html">Play Again</a>
+
+                <button class="questionButton" id="toRefresh" onClick="window.location.replace('leaderboard.html');">Refresh</button>
+
+                <div>
+                    <!-- shows only when th finishes-->
+                    <table class="questionButton" id="userScores">
+                        <tr>
+                            <th>Rank</th>
+                            <th>Team</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <!-- shows only when th finishes-->
+                    <table class="questionButton" id="lbScores">
+                        <tr class="fixHeader">
+                            <th id="rankHeading">Rank</th>
+                            <th id="teamHeading">Team</th>
+                            <th id="scoreHeading">Score</th>
+                            <th id="timeHeading">Time</th>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <script>
+                //function gets leaderboard
+                getLeaderboard();
+                //function gets rank and final score
+                getRank();
+            </script>
+
+    </body>
+</html>
