@@ -335,6 +335,8 @@ function getQuestion(thsession) {
             }
             //when treasure hunt ends, brings player to leaderboard
             else if (isComplete) {
+                window.location.replace("leaderboard.html");
+                /*
                 //hiding elements so only leaderboard shows when th finishes
                 progressInfo.style.display = "none";
                 questionsDiv.style.display = "none";
@@ -345,6 +347,7 @@ function getQuestion(thsession) {
                 getLeaderboard(thsession);
                 //function gets rank and final score
                 getRank(thsession);
+                */
             }
         });
 }
@@ -498,12 +501,12 @@ function showPosition(lat, long, answer) {
 }
 
 //function gets leaderboard
-function getLeaderboard(thsession) {
+function getLeaderboard() {
     let limit = 25;
 
     //example link
     //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
-    fetch("https://codecyprus.org/th/api/leaderboard?session=" + thsession + "&sorted&limit=" + limit + "")
+    fetch("https://codecyprus.org/th/api/leaderboard?session=" + accessCookie("sessionID") + "&sorted&limit=" + limit + "")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
@@ -565,9 +568,9 @@ function getLeaderboard(thsession) {
 }
 
 //function gets leaderboard
-function getRank(thsession) {
+function getRank() {
 
-    fetch("https://codecyprus.org/th/api/leaderboard?session=" + thsession + "&sorted")
+    fetch("https://codecyprus.org/th/api/leaderboard?session=" + accessCookie("sessionID") + "&sorted")
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
