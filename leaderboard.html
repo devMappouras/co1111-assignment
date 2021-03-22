@@ -78,6 +78,13 @@
                 getLeaderboard();
                 //function gets rank and final score
                 getRank();
+
+                document.getElementById("toHome").onclick = function() {myClearFunction()};
+                document.getElementById("toPlayAgain").onclick = function() {myClearFunction()};
+
+                function myClearFunction() {
+                    createCookie("sessionID", "", -100);
+                }
             </script>
 
     </body>

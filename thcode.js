@@ -62,6 +62,25 @@ function checkCookie(playersName) {
     }
 }
 
+function checkForCookie() {
+    console.log("document");
+    if (accessCookie("sessionID") !== "") {
+        var cookieCheck = confirm("A running session found. Do you want to resume it? (Press cancel to start New Session).");
+
+        if (cookieCheck === true) {
+            var nameInTh = accessCookie("username");
+            let link = accessCookie("sessionID");
+            window.location.href="returningQuestion.html?player="+ nameInTh +"&treasure-hunt-id="+link;
+            //getQuestion(link);
+        } else {
+            window.location.href = 'app.html';
+        }
+
+    } else {
+        location.href='app.html';
+    }
+}
+
 //function that starts the th game
 function getStartData() {
 
