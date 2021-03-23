@@ -10,5 +10,332 @@
 </head>
 <body>
 <h1 class="header">User Acceptance Plan</h1>
+<div class="containerTesting">
+    <p>
+        User Acceptance Plan is a type of testing performed by the end user or the client to
+        verify/accept the software system before moving the software application to the production environment.
+        UAT is done in the final phase of testing after unit, integration and system testing is done.
+        User Acceptance Testing is essential because developers might have built software based on
+        requirements by their own understanding, so for testing whether the final product is accepted
+        by client/end-user, user acceptance testing is needed.
+
+        <br>
+        <br>
+
+    </p>
+    <p><u>Participants:</u></p>
+    <p>Cristos Mappouras (tester) <br></p>
+    <p>Marina Irakleous (tester)<br></p>
+    <p>Namukolo Amy Yeta (client)<br></p>
+    <br>
+    <p><u>Methodology:</u></p>
+    <p>An early version of Parley web app will be provided to Namukolo to test the performance of the app based on scripted test cases. </p>
+    <p>Christos and Marina will write the test cases. </p>
+    <p>After testing the given app version, Namukolo will provide the testers with the test results to improve the app. </p>
+    <p>This procedure will take place online due to COVID-19 regulations.</p>
+    <br>
+    <p><u>UAT Constraints:</u></p>
+    <p>Time frames: Test results must be provided by March 20th 2021</p>
+
+
+</div>
+
+
+
+<table class="containerTesting testingTable">
+    <caption>Test cases for Parley web app </caption>
+    <tr>
+        <th>Test ID</th>
+        <th>Test Type</th>
+        <th>Test Description</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Web App Design</td>
+        <td>Overall design should be clear, consistent and responsive throughout user’s experience</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Web App Design</td>
+        <td>Colors and fonts should be consistent and pleasing</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Test App</td>
+        <td>App should list properly the treasure hunts </td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Test App</td>
+        <td>Buttons in App should work as expected, including proper error messages when there is a problem</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Test App</td>
+        <td>Meaningful design of App page that assists in user’s understanding</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Test App</td>
+        <td>Cookies should remember the session</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Test Questions</td>
+        <td>Design should be consistent for all questions (e.g. same layout everytime)</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Test Questions</td>
+        <td>Question index and score should be visible during the playing session and should update properly</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Test Questions</td>
+        <td>Buttons should work properly without lugging and their existence should be meaningful (e.g. skip button should appear only when a question can be skipped)</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Test Questions</td>
+        <td>Answer type must correspond to question</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Test Questions</td>
+        <td>Working QR code and functional switch button</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Test Leaderboard</td>
+        <td>Buttons/icons should work as expected (home-icon, play again, refresh)</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>Test Leaderboard</td>
+        <td>Current user’s score and ranking is clearly visible and distinguishable from the leaderboard</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>Test Leaderboard</td>
+        <td>Leaderboard should properly list the teams in a sorted manner</td>
+    </tr>
+
+
+</table>
+
+<table class="containerTesting testingTable">
+    <caption>First test results for Parley web app </caption>
+    <tr>
+        <th>Test ID</th>
+        <th>Test No.</th>
+        <th>Tested By</th>
+        <th>Role</th>
+        <th>Date</th>
+        <th>Results (Pass/Fail)</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:15</td>
+        <td>Pass</td>
+        <td>Consistent and responsive design</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:15</td>
+        <td>Pass</td>
+        <td>Nice colors and fonts</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:20</td>
+        <td>Pass</td>
+        <td>Consistent listing of treasure hunts</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:20</td>
+        <td>Fail</td>
+        <td>No error messages when a treasure hunt is not available</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:20</td>
+        <td>Fail</td>
+        <td>Design is not clear enough</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:25</td>
+        <td>Fail</td>
+        <td>Cookies do not remember the session</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:25</td>
+        <td>Pass</td>
+        <td>Layout of the page remains the same with every question transition</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:27</td>
+        <td>Fail</td>
+        <td>Score updates after submitting answers, but nor score or question index are visible</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:27</td>
+        <td>Pass</td>
+        <td>Buttons work properly</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:28</td>
+        <td>Pass</td>
+        <td>Answer type corresponds to question</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:30</td>
+        <td>Fail</td>
+        <td>QR code works but switch button doesn’t work</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:33</td>
+        <td>Fail</td>
+        <td>Home-icon and play again button are functional, but the refresh button is not</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:35</td>
+        <td>Fail</td>
+        <td>User’s current score and rank is not visible</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>1</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>01/03/21, 14:36</td>
+        <td>Pass</td>
+        <td>Leaderboard works</td>
+    </tr>
+</table>
+
+<table class="containerTesting testingTable">
+    <caption> Second test results for Parley web app </caption>
+    <tr>
+        <th>Test ID</th>
+        <th>Test No.</th>
+        <th>Tested By</th>
+        <th>Role</th>
+        <th>Date</th>
+        <th>Results (Pass/Fail)</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:30</td>
+        <td>Pass</td>
+        <td>Clear error messages when a treasure hunt is not available</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:30</td>
+        <td>Pass</td>
+        <td>Removing the various borders made the design clear</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:35</td>
+        <td>Pass</td>
+        <td>Cookies work properly. When exiting the game and rejoin, a message prompts the user that he/she can continue playing</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:38</td>
+        <td>Pass</td>
+        <td>Score updates after each question, question index/score are visible</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:40</td>
+        <td>Pass</td>
+        <td>Qr code and switch button work properly</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:43</td>
+        <td>Pass</td>
+        <td>Refresh button work as well</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>2</td>
+        <td>Namukolo Amy Yeta</td>
+        <td>Client</td>
+        <td>15/03/21, 17:43</td>
+        <td>Pass</td>
+        <td>User’s current score and rank are clearly visible</td>
+    </tr>
+</table>
 </body>
 </html>

@@ -522,9 +522,11 @@ th, td {
 
 }
 
-#heuristicsTable{
+.testingTable{
 	margin-top:0;
 	margin-bottom: 20px;
+	margin-left:0;
+	margin-right:0;
 	padding: 5px;
 	text-align: left;
 	border: 1px solid black;
