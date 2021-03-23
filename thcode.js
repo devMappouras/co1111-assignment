@@ -433,7 +433,7 @@ function skipQuestion(thsession) {
     }
 }
 
-//function gets player location
+//function gets player location (force update)
 function getLocation(answer) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -444,7 +444,7 @@ function getLocation(answer) {
     }
 }
 
-//function sends player's location to server
+//function sends player's location to server (force update)
 function showPosition(lat, long, answer) {
 
 
@@ -496,9 +496,37 @@ function showPosition(lat, long, answer) {
         });
 }
 
+//function gets player location (periodic update)
+function getPeriodicLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            showPeriodicPosition(position.coords.latitude, position.coords.longitude);
+        });
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+//function sends player's location to server (periodic update)
+function showPeriodicPosition(lat, long) {
+
+
+    //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
+    fetch("https://codecyprus.org/th/api/location?session=" + accessCookie("sessionID") + "&latitude=" + lat + "&longitude=" + long)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            let locStatus = jsonObject.status;
+
+            if (locStatus === "OK") {
+                console.log("here");
+            }
+        });
+}
+
 //function gets leaderboard
 function getLeaderboard() {
-    let limit = 25;
+    let limit = 50;
 
     //example link
     //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
@@ -637,4 +665,5 @@ function getScore() {
             }
         });
 }
+
 
