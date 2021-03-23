@@ -526,7 +526,7 @@ function showPeriodicPosition(lat, long) {
 
 //function gets leaderboard
 function getLeaderboard() {
-    let limit = 50;
+    let limit = 20;
 
     //example link
     //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
