@@ -111,9 +111,6 @@ function getStartData() {
         });
 }
 
-let longitude = 0;
-let latitude = 0;
-
 //function that calls the questions from server
 function getQuestion(thsession) {
 
@@ -381,6 +378,9 @@ function sendAnswertoServer(thsession, answer, isLocation) {
                     if (isCorrect === true) {
                         getQuestion(thsession);
                     }
+                    else if (isCorrect === false) {
+                        getScore();
+                    }
                 } else if (ansStatus === "ERROR") {
                     let errorMessages = jsonObject.errorMessages;
 
@@ -626,7 +626,6 @@ function getScore() {
             //gets scores
             let scoreAPI = jsonObject.score;
 
-            //console.log(scoreAPI);
             //gets a element
             let score = document.getElementById("score");
 
