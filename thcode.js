@@ -6,7 +6,10 @@ function getTreasureHunts() {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            let playersName=prompt("Enter Your Name:", "");
+            do{
+                var playersName=prompt("Enter Your Name:", "");
+            } while(playersName !== null && playersName === "")
+
 
             //ul element that shows treasure hunts list
             let thList = document.getElementById("thList");
@@ -48,18 +51,6 @@ function accessCookie(cookieName)
             return temp.substring(name.length,temp.length);
     }
     return "";
-}
-
-//checks if session has already started and did not finish
-function checkCookie(playersName) {
-    var nameInTh = accessCookie("username");
-    if (playersName === nameInTh) {
-        //alert("Welcome Back!");
-        let link = accessCookie("sessionID");
-        //window.location.replace("question.html?player="+ nameInTh +"&treasure-hunt-id="+link);
-        //getQuestion(link);
-
-    }
 }
 
 function checkForCookie() {
@@ -119,11 +110,6 @@ function getStartData() {
             //console.log(totalQuestions);
         });
 }
-
-
-
-let longitude = 0;
-let latitude = 0;
 
 //function that calls the questions from server
 function getQuestion(thsession) {
@@ -355,18 +341,6 @@ function getQuestion(thsession) {
             //when treasure hunt ends, brings player to leaderboard
             else if (isComplete) {
                 window.location.replace("leaderboard.html");
-                /*
-                //hiding elements so only leaderboard shows when th finishes
-                progressInfo.style.display = "none";
-                questionsDiv.style.display = "none";
-                for (i = 0; i < qrDropdown.length; i++) {
-                    qrDropdown[i].style.display = "none";
-                }
-                //function gets leaderboard
-                getLeaderboard(thsession);
-                //function gets rank and final score
-                getRank(thsession);
-                */
             }
         });
 }
@@ -403,6 +377,9 @@ function sendAnswertoServer(thsession, answer, isLocation) {
                     messageElement.style.display = "block";
                     if (isCorrect === true) {
                         getQuestion(thsession);
+                    }
+                    else if (isCorrect === false) {
+                        getScore();
                     }
                 } else if (ansStatus === "ERROR") {
                     let errorMessages = jsonObject.errorMessages;
@@ -456,7 +433,7 @@ function skipQuestion(thsession) {
     }
 }
 
-//function gets player location
+//function gets player location (force update)
 function getLocation(answer) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -467,7 +444,7 @@ function getLocation(answer) {
     }
 }
 
-//function sends player's location to server
+//function sends player's location to server (force update)
 function showPosition(lat, long, answer) {
 
 
@@ -519,9 +496,37 @@ function showPosition(lat, long, answer) {
         });
 }
 
+//function gets player location (periodic update)
+function getPeriodicLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            showPeriodicPosition(position.coords.latitude, position.coords.longitude);
+        });
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+//function sends player's location to server (periodic update)
+function showPeriodicPosition(lat, long) {
+
+
+    //https://codecyprus.org/th/api/location?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&latitude=34.683646&longitude=33.055391
+    fetch("https://codecyprus.org/th/api/location?session=" + accessCookie("sessionID") + "&latitude=" + lat + "&longitude=" + long)
+        .then(response => response.json()) //Parse JSON text to JavaScript object
+        .then(jsonObject => {
+
+            let locStatus = jsonObject.status;
+
+            if (locStatus === "OK") {
+                console.log("here");
+            }
+        });
+}
+
 //function gets leaderboard
 function getLeaderboard() {
-    let limit = 25;
+    let limit = 50;
 
     //example link
     //https://codecyprus.org/th/api/leaderboard?session=ag9nfmNvZGVjeXBydXNvcmdyFAsSB1Nlc3Npb24YgICAoMa0gQoM&sorted&limit=10
@@ -649,7 +654,6 @@ function getScore() {
             //gets scores
             let scoreAPI = jsonObject.score;
 
-            //console.log(scoreAPI);
             //gets a element
             let score = document.getElementById("score");
 
@@ -661,4 +665,5 @@ function getScore() {
             }
         });
 }
+
 
