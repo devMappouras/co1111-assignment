@@ -48,4 +48,8 @@ __________
           apply to the Treasure Hunt game. Furthermore, we discussed about what kind of tests we will provide the client (Namu) for the UAT. 
           Christos will work on cookies (remember the session) and Marina will work on unit testing (scoreboard). 
           
+ 23/03/21: In this meeting we did an overall assessment of the final product to check that everything works as expected.
+          We also completed the tests for UAT and documented the test results in userAcceptance page
+          
+          
 
