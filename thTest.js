@@ -36,8 +36,7 @@ function listTest() {
                 let thEmailResults = treasureHunts[i].emailResults;
                 let thHasPrize = treasureHunts[i].hasPrize;
 
-               thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<p>" +thOwnerEmail+ "</p>" + "<p>" +thSecretCode+ "</p>" + "<p>" +thSalt+ "</p>" + "<p>" +thVisibility+ "</p>" + "<p>" +thStartsOn+ "</p>" + "<p>" +thEndsOn+ "</p>" + "<p>" +thMaxDuration+ "</p>" + "<p>" +thShuffled+ "</p>" + "<p>" +thAuthentication+ "</p>" + "<p>" +thEmailResults+ "</p>" + "<p>" +thHasPrize+ "</p>" + "<br>"+ "</div>";
-               // thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<br>"+ "</div>";
+                thList.innerHTML ="<div class='liClass'>" + "<p>" +thName+ "</p>"+ "<p>" +thDesc+ "</p>" + "<a>Start</a>" + "</div><br>";
 
 
                 listTestOutput.appendChild(thList);
