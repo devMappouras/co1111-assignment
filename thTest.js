@@ -85,7 +85,7 @@ fetch("https://codecyprus.org/th/test-api/score?score=" + answer)
 
 
 
-       thScoreTest.innerHTML ="<div id='liID'>" + "<p>" +thCompleted+ "</p>"+ "<p>" +thFinished+ "</p>" + "<p>" +thPlayer+ "</p>" + "<p>" +thScore+ "</p>" + "<p>" +thHasPrize+ "</p>" + "<p>" +thStatus+ "</p>" + "<br>"+ "</div>";
+       thScoreTest.innerHTML ="<div id='liID'>" + "<p>" + "score of user " + thPlayer + " is: " + thScore + "</p></div><br>";
 
        scoreTestOutput.appendChild(thScoreTest);
 
