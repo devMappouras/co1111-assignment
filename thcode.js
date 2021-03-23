@@ -6,7 +6,10 @@ function getTreasureHunts() {
         .then(response => response.json()) //Parse JSON text to JavaScript object
         .then(jsonObject => {
 
-            let playersName=prompt("Enter Your Name:", "");
+            do{
+                var playersName=prompt("Enter Your Name:", "");
+            } while(playersName !== null && playersName === "")
+
 
             //ul element that shows treasure hunts list
             let thList = document.getElementById("thList");
