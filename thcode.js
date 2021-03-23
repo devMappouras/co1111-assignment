@@ -53,18 +53,6 @@ function accessCookie(cookieName)
     return "";
 }
 
-//checks if session has already started and did not finish
-function checkCookie(playersName) {
-    var nameInTh = accessCookie("username");
-    if (playersName === nameInTh) {
-        //alert("Welcome Back!");
-        let link = accessCookie("sessionID");
-        //window.location.replace("question.html?player="+ nameInTh +"&treasure-hunt-id="+link);
-        //getQuestion(link);
-
-    }
-}
-
 function checkForCookie() {
     console.log("document");
     if (accessCookie("sessionID") !== "") {
@@ -122,8 +110,6 @@ function getStartData() {
             //console.log(totalQuestions);
         });
 }
-
-
 
 let longitude = 0;
 let latitude = 0;
@@ -358,18 +344,6 @@ function getQuestion(thsession) {
             //when treasure hunt ends, brings player to leaderboard
             else if (isComplete) {
                 window.location.replace("leaderboard.html");
-                /*
-                //hiding elements so only leaderboard shows when th finishes
-                progressInfo.style.display = "none";
-                questionsDiv.style.display = "none";
-                for (i = 0; i < qrDropdown.length; i++) {
-                    qrDropdown[i].style.display = "none";
-                }
-                //function gets leaderboard
-                getLeaderboard(thsession);
-                //function gets rank and final score
-                getRank(thsession);
-                */
             }
         });
 }
